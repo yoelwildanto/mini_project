@@ -1,0 +1,12 @@
+1. kalau ngerjain jangan lupa bikin branch baru dulu. misal: Kerjaan_Yoel
+atau mau per fitur boleh. klo aku prefer kerjaan_yoel.
+
+cara bikin branch baru:
+>lewat VS Code
+cek di kiri bawah, itu nunjukin branch yang sekarang kamu akses. klik create new branch "kasih nama bebas"
+
+>lewat Githbu desktop
+klik current branch di atas tengah ( diantar current repo dan fetch origin)
+
+2. push kerjaan ke branch "dev" dulu.
+penjelasan dan contoh ada di Word
