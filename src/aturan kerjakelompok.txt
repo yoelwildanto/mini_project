@@ -1,0 +1,4 @@
+1. kalau ngerjain jangan lupa bikin branch baru dulu. misal: Kerjaan_Yoel
+atau mau per fitur boleh. klo aku prefer kerjaan_yoel.
+
+cara bikin branch baru:
