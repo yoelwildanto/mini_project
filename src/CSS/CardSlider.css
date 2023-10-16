@@ -1,0 +1,116 @@
+@import url('https://fonts.cdnfonts.com/css/basier');
+
+
+#main-slider-container{
+    width: 98%;
+    height: 305px;
+    margin: 10px;
+    margin-top: 50px;
+    font-family: 'Basier Circle', sans-serif;
+
+}
+
+#slider{
+    width: 100%;
+    /* height: 100%; */
+    white-space: nowrap;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    padding: 10px 0px;
+}
+
+#slider::-webkit-scrollbar{
+    display: none;
+}
+
+#main-slider-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+
+.slider-card-title{
+    margin: 5px 0px 5px 20px;
+}
+
+.slider-card-title{
+    font-weight: 500;
+    margin-top: 25px;
+}
+
+.slider-card-description{
+    opacity: 0.5;
+    font-size: 13px;  
+}
+
+.slider-card-image{
+    width: 100%;
+    height: 140px;
+    background-color: rgb(240 240 240 / 80%);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.slider-icon.left, .slider-icon.right {
+    background: white;
+    border-radius: 100%;
+    position: absolute;
+    opacity: 0.5;
+    box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 12%);
+    cursor: pointer;
+}
+
+.slider-icon.left{
+    left: 0;
+}
+
+.slider-icon.right{
+    right: 0;
+}
+
+.slider-icon.left:hover{
+    opacity: 1;
+    left: -10px;
+    transition: .9s ease;
+}
+.slider-icon.right:hover{
+    opacity: 1;
+    right: -10px;
+    transition: .9s ease;
+}
+
+.slider-card{
+    width: 220px;
+    height: 330px;
+    background: white;
+    border-radius: 10px;
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 12%);
+    cursor: pointer;
+}
+
+.disc{
+    padding: 0px 15px;
+    text-align: left;
+}
+
+.slider-card-date{
+    font-weight: 600;
+    margin-top: 13px;
+    opacity: .5;
+    margin-bottom: 10px;
+}
+
+.slider-card-price{
+    font-weight: 600;
+    margin-top: 0px;
+    margin-bottom: 25px;
+}
+
+hr{
+    opacity: .4;
+}
