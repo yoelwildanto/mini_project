@@ -1,0 +1,33 @@
+{
+    "banner": [
+    {
+      "id": 1,
+      "image": "https://picsum.photos/200/300"
+    },
+    {
+        "id": 2,
+        "image": "../src/Asset/b.jpg"
+      }, 
+      {
+        "id": 3,
+        "image": "../src/Asset/c.jpg"
+      }, 
+      {
+        "id": 4,
+        "image": "../src/Asset/d.jpg"
+      },
+
+      {
+        "id": 5,
+        "image": "../src/Asset/e.jpg"
+      },
+      {
+        "id": 6,
+        "image": "../src/Asset/f.jpg"
+      },
+      {
+        "id": 7,
+        "image": "../src/Asset/g.jpg"
+      }
+]
+}

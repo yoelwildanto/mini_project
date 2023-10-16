@@ -1,0 +1,81 @@
+/* SliderBanner.css */
+.slider-banner {
+    width: 100%;
+  }
+
+  .slider-banner img{
+    object-fit: contain;
+    justify-content: center;
+    align-self: center;
+  }
+
+  
+  .slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+  }
+  
+  .slick-list {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .slick-slide {
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+  }
+  
+  .slick-slide img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .slick-dots {
+    position: absolute;
+    bottom: -20px;
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid black; */
+    /* font-size: 20px; */
+  }
+  
+  .slick-dots li {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 0;
+    /* width: 19px;
+    height: 18px; */
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transition: background 1s ease;
+    /* font-size: 20px; */
+  }
+  
+  .slick-dots li.slick-active {
+    background: #007BFF;
+  }
+
+  .slick-dots li button{
+    color: transparent;
+  }
+
+  .slick-dots li button:before{
+    color: transparent;
+    background: #007BFF;
+    border-radius: 50%;
+  }
+  .slick-dots li.slick-active button:before{
+    color: transparent;
+  }
+  
