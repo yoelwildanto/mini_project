@@ -2,6 +2,7 @@ import React, {useState,useEffect} from "react";
 import { Box } from "@chakra-ui/react";
 import SliderBanner from "../Components/SliderBanner";
 import ReactCardSlider from "../Components/SliderCard";
+import Navbar from "../Components/Navbar";
 import Axios from "axios";
 
 const LandingPage = () => {
