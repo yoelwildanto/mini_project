@@ -11,7 +11,7 @@ const Navbar = () => {
     <div className='navbar'>
         <div className="navbar-left">
             <div className="logo">Logo</div>
-            <Box ml={"80px"} display={"flex"} className="search">
+            <Box m={"0px auto"} display={"flex"} className="search">
                 <Input width={"100%"} ml={"auto"} borderRadius={"0px"} borderTopLeftRadius={"10px"} borderBottomLeftRadius={"10px"}border={"2px solid white"}
                 _placeholder={{fontWeight:300 ,color: "white"}} 
                 placeholder={"Cari event seru di sini"} borderRight={"transparent"}></Input>

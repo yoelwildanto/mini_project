@@ -1,8 +1,9 @@
 import React, {useState,useEffect} from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import SliderBanner from "../Components/SliderBanner";
 import ReactCardSlider from "../Components/SliderCard";
-import Navbar from "../Components/Navbar";
+import Footer from "./Footer";
+// import Navbar from "../Components/Navbar";
 import Axios from "axios";
 
 const LandingPage = () => {
@@ -49,7 +50,20 @@ const LandingPage = () => {
 
       {/* Upcoming Event Slider Cards */}
       {/* <UpcomingEventSlider /> */}
+      <Box mt={"20px"}>
+      <Text ml={"15px"} display={"flex"} color={"black"} fontWeight={800} fontSize={"20px"}> Upcoming Event </Text>
       <ReactCardSlider slides={data}/>
+      </Box>
+      <Box borderRadius={"5px"} m={"80px 5px"} bg={"#032466"} p={"50px"}>
+        <Text color={"white"} fontWeight={800} fontSize={"30px"}> Terlaris </Text>
+      <ReactCardSlider slides={data}/>
+      </Box>
+
+      <Box mt={"-20px"}>
+      <Text ml={"15px"} display={"flex"} color={"black"} fontWeight={800} fontSize={"20px"}> Konser </Text>
+      <ReactCardSlider slides={data}/>
+      </Box>
+
 
       {/* List of Top 3 Bestsellers */}
       {/* <TopBestsellers /> */}
@@ -58,7 +72,7 @@ const LandingPage = () => {
       {/* <DiscoverButton /> */}
 
       {/* Footer */}
-      {/* <Footer /> */}
+      <Footer />
     </Box>
   );
 };

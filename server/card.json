@@ -6,7 +6,7 @@
         "date": "2023-11-15",
         "ticketPrice": "$25",
         "description": "Company A",
-        "image": "https://picsum.photos/200/300"
+        "image": "../Asset/e.jpg"
       },
       {
         "id": 2,
@@ -14,7 +14,7 @@
         "date": "2023-12-10",
         "ticketPrice": "$30",
         "description": "Company B",
-        "image": "https://picsum.photos/600/500"
+        "image": "../Asset/b.jpg"
       },
       {
         "id": 3,
@@ -22,7 +22,7 @@
         "date": "2023-12-20",
         "ticketPrice": "$20",
         "description": "Company C",
-        "image": "https://picsum.photos/700/600"
+        "image": "../Asset/c.jpg"
       },
       {
         "id": 4,
@@ -30,7 +30,7 @@
         "date": "2023-12-25",
         "ticketPrice": "$40",
         "description": "Company D",
-        "image": "https://picsum.photos/500/400"
+        "image": "../Asset/d.jpg"
       },
       {
         "id": 5,
@@ -38,7 +38,7 @@
         "date": "2023-12-30",
         "ticketPrice": "$35",
         "description": "Company E",
-        "image": "https://picsum.photos/200/300"
+        "image": "../Asset/e.jpg"
       },
       {
         "id": 6,
@@ -46,7 +46,7 @@
         "date": "2024-01-05",
         "ticketPrice": "$28",
         "description": "Company F",
-        "image": "https://picsum.photos/800/700"
+        "image": "../Asset/f.jpg"
       }
      
     ]

@@ -31,44 +31,80 @@ const SliderBanner = (props) => {
     };
     // console.log(props.banners)
 
-  
-    // return (
-    //   <div className="slider-banner">
-    //     <Slider {...settings}>
-    //         {
-    //             props.banners.map((a,index)=>{
-    //                 console.log(a.image)
-    //                 return(
-    //                     <div key={index}>
-    //                     <img src={a.image} alt="Slide 1" />
-    //                   </div>
-    //                  )
-    //             })
-         
-    //       }
-    //     </Slider>
-    //   </div>
-    // );
+    const BANNER = [
+      {
+        id: 1,
+      image: "../Asset/a.jpg"
+      },
+      {
+        id: 2,
+        image: "../Asset/b.jpg"
+      }, 
+      {
+        id: 3,
+        image: "../Asset/c.jpg"
+      }, 
+      {
+        id: 4,
+        image: "../Asset/d.jpg"
+      },
 
-    return(
-        <div className="slider-banner">
+      {
+        id: 5,
+        image: "../Asset/e.jpg"
+      },
+      {
+        id: 6,
+        image: "../Asset/f.jpg"
+      },
+      {
+        id: 7,
+        image: "../Asset/g.jpg"
+      }
+    ]
+    console.log(BANNER)
+
+  
+    return (
+      <div className="slider-banner">
         <Slider {...settings}>
-            <div>
-                <img src={banner1} alt="Slide 1" />
-            </div> 
-            <div>
-                <img src={banner2} alt="Slide 1" />
-            </div>    <div>
-                <img src={banner3} alt="Slide 1" />
-            </div>    <div>
-                <img src={banner4} alt="Slide 1" />
-            </div>    <div>
-                <img src={banner5} alt="Slide 1" />
-            </div>          
-          
+            {
+                // props.banners.map((a,index)=>{
+                BANNER.map((a,index)=>{
+
+                    // console.log(a.image)
+                    return(
+                        <div key={index}>
+                        {/* <img src={require(`${a.image}`)} alt="Slide 1" /> */}
+                        <img src={a.image} alt="Slide 1" />
+                      </div>
+                     )
+                })
+         
+          }
         </Slider>
       </div>
-    )
+    );
+
+//     return(
+//         <div className="slider-banner">
+//         <Slider {...settings}>
+//             <div>
+//                 <img src={banner1} alt="Slide 1" />
+//             </div> 
+//             <div>
+//                 <img src={banner2} alt="Slide 1" />
+//             </div>    <div>
+//                 <img src={banner3} alt="Slide 1" />
+//             </div>    <div>
+//                 <img src={banner4} alt="Slide 1" />
+//             </div>    <div>
+//                 <img src={banner5} alt="Slide 1" />
+//             </div>          
+          
+//         </Slider>
+//       </div>
+//     )
   };
   
   export default SliderBanner;

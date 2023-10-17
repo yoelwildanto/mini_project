@@ -1,7 +1,10 @@
 import React from 'react';
 import "../CSS/CardSlider.css"
-
 import { MdChevronLeft,MdChevronRight } from 'react-icons/md';
+import { Box, Text } from '@chakra-ui/react';
+
+
+
 const ReactCardSlider =(props)=>{
     const slideLeft =()=>{
         var slider = document.getElementById("slider");
@@ -13,9 +16,10 @@ const ReactCardSlider =(props)=>{
         slider.scrollLeft = slider.scrollLeft + 500;
     }
 
-    // console.log(props.slides)
 
     return(
+        <Box>
+            {/* <Text fontWeight={700} fontSize={"25px"} m={"10px 25px"} display={"flex"}>Upcoming Event</Text> */}
         <div id="main-slider-container">
             <MdChevronLeft size={40} className="slider-icon left" onClick={slideLeft}/>
             <div id="slider">
@@ -38,6 +42,7 @@ const ReactCardSlider =(props)=>{
             </div>
             <MdChevronRight size={40} className="slider-icon right" onClick={slideRight}/>
         </div>
+        </Box>
     )
 }
 export default ReactCardSlider;
