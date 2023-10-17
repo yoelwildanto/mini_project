@@ -35,7 +35,7 @@ const LandingPage = () => {
       });
   }, []);
   return (
-    <Box padding={"10px"}>
+    <Box>
       {/* Slider Banner */}
       <SliderBanner banners={banner} />
 
@@ -54,7 +54,7 @@ const LandingPage = () => {
         </Text>
         <ReactCardSlider slides={data} />
       </Box>
-      <Box borderRadius={"5px"} m={"80px 5px"} bg={"#032466"} p={"50px"}>
+      <Box borderRadius={"5px"} m={"80px 0px"} bg={"#032466"} p={"50px"}>
         <Text color={"white"} fontWeight={800} fontSize={"30px"}>
           {" "}
           Terlaris{" "}

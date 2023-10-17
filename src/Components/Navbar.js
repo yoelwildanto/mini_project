@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navbar-left">
-        <div className="logo">Logo</div>
+        <div className="logo">TicketZone</div>
         <Box m={"0px auto"} display={"flex"} className="search">
           <Input
             width={"100%"}
