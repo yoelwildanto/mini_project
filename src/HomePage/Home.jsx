@@ -5,19 +5,19 @@ const LandingPage = () => {
   return (
     <Box>
       {/* Slider Banner */}
-      <SliderBanner />
+      {/* <SliderBanner /> */}
 
       {/* Upcoming Event Slider Cards */}
-      <UpcomingEventSlider />
+      {/* <UpcomingEventSlider /> */}
 
       {/* List of Top 3 Bestsellers */}
-      <TopBestsellers />
+      {/* <TopBestsellers /> */}
 
       {/* Discover Button */}
-      <DiscoverButton />
+      {/* <DiscoverButton /> */}
 
       {/* Footer */}
-      <Footer />
+      {/* <Footer /> */}
     </Box>
   );
 };
