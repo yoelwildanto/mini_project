@@ -5,7 +5,7 @@ import "../CSS/Footer.css";
 
 const Footer = () => {
   return (
-    <Box my={"70px"} bg={"white"} height={"100px"}>
+    <Box mb={"70px"} bg={"white"} height={"100px"}>
       <Grid templateColumns={"repeat(4, 1fr)"} bg={"#032466"} gap={10}>
         <GridItem  bg={"red"} ml={"100px"}>
           <VStack color={"#F6F4F1"}>

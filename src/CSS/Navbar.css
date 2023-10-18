@@ -53,3 +53,13 @@
 .nav-auth-button{
     gap: 5px;
 }
+
+@media only screen and (max-width: 800px) {
+    .navbar-right{
+        display: none;
+    }
+
+    .search{
+        display: none;
+    }
+  }

@@ -35,13 +35,13 @@ const LandingPage = () => {
       });
   }, []);
   return (
-    <Box>
+    <Box >
       {/* Slider Banner */}
       <SliderBanner banners={banner} />
 
       {/* Upcoming Event Slider Cards */}
       {/* <UpcomingEventSlider /> */}
-      <Box mt={"20px"}>
+      <Box mt={"40px"}>
         <Text
           ml={"15px"}
           display={"flex"}
@@ -62,7 +62,7 @@ const LandingPage = () => {
         <ReactCardSlider slides={data} />
       </Box>
 
-      <Box mt={"-20px"}>
+      <Box mt={"-20px"} mb={"50px"}>
         <Text
           ml={"15px"}
           display={"flex"}
