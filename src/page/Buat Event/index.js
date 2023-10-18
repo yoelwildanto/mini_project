@@ -31,7 +31,7 @@ export default function CreateEvent() {
         display={"flex"}
         alignItems={"center"}
         justifyContent={"center"}
-        bg={"blue.300"}
+        bg={"transparent"}
       >
         <VStack w={"50%"} spacing={"1em"} align={"stretch"}>
           <Box>
@@ -47,11 +47,12 @@ export default function CreateEvent() {
               <Box>
                 <FormLabel>Nama Event</FormLabel>
                 <Input
-                //   placeholder="Nama Event"
-                // borderColor={"black"}
-                // _placeholder={{ color: "black" }}
-                // _hover={{ borderColor: "white" }}
-                // _focusVisible={{ borderColor: "white" }}
+                  bg={"#FAF9F6	"}
+                  //   placeholder="Nama Event"
+                  // borderColor={"black"}
+                  // _placeholder={{ color: "black" }}
+                  // _hover={{ borderColor: "white" }}
+                  // _focusVisible={{ borderColor: "white" }}
                 ></Input>
               </Box>
               <Box my={"10px"}>
@@ -64,6 +65,7 @@ export default function CreateEvent() {
                   _focusVisible={{ borderColor: "white" }}
                 ></Input> */}
                 <Input
+                  bg={"#FAF9F6"}
                   placeholder="Pilih Tanggal Event"
                   size="md"
                   type="date"
@@ -74,18 +76,22 @@ export default function CreateEvent() {
                   <Box w={"100%"}>
                     <FormLabel>Waktu Mulai</FormLabel>
                     <Input
-                    // borderColor={"black"}
-                    // _hover={{ borderColor: "white" }}
-                    // _focusVisible={{ borderColor: "white" }}
+                      bg={"#FAF9F6"}
+
+                      // borderColor={"black"}
+                      // _hover={{ borderColor: "white" }}
+                      // _focusVisible={{ borderColor: "white" }}
                     />
                   </Box>
                   <Spacer m={".5em"} />
                   <Box w={"100%"}>
                     <FormLabel>Waktu Selesai</FormLabel>
                     <Input
-                    // borderColor={"black"}
-                    // _hover={{ borderColor: "white" }}
-                    // _focusVisible={{ borderColor: "white" }}
+                      bg={"#FAF9F6"}
+
+                      // borderColor={"black"}
+                      // _hover={{ borderColor: "white" }}
+                      // _focusVisible={{ borderColor: "white" }}
                     />
                   </Box>
                 </Flex>
@@ -107,7 +113,7 @@ export default function CreateEvent() {
                   _focusVisible={{ borderColor: "white" }}
                   /> */}
                     <FormLabel>Kota</FormLabel>
-                    <Select placeholder="Pilih Kota">
+                    <Select bg={"#FAF9F6"} placeholder="Pilih Kota">
                       <option>Bali</option>
                       <option>Bandung</option>
                       <option>Jakarta</option>
@@ -119,6 +125,7 @@ export default function CreateEvent() {
                 <Box>
                   <FormLabel>Lokasi</FormLabel>
                   <Input
+                    bg={"#FAF9F6"}
                     placeholder="Lokasi Event"
                     // borderColor={"black"}
                     // _placeholder={{ color: "black" }}
@@ -143,6 +150,7 @@ export default function CreateEvent() {
                 <Box>
                   <FormLabel>Deskripsi</FormLabel>
                   <Input
+                    bg={"#FAF9F6	"}
                     placeholder="Deskripsi Event"
                     borderColor={"black"}
                     // _placeholder={{ color: "black" }}
@@ -152,7 +160,7 @@ export default function CreateEvent() {
                 </Box>
                 <Box>
                   <FormLabel>Kategori</FormLabel>
-                  <Select placeholder="Pilih Kategori Event">
+                  <Select bg={"#FAF9F6"} placeholder="Pilih Kategori Event">
                     <option>Festival</option>
                     <option>Olahraga</option>
                     <option>Konser</option>
@@ -163,6 +171,7 @@ export default function CreateEvent() {
                 <Box my={"10px"}>
                   <FormLabel>Harga Tiket</FormLabel>
                   <Input
+                    bg={"#FAF9F6"}
                     placeholder="Masukkan Harga Tiket"
                     // borderColor={"black"}
                     // _placeholder={{ color: "black" }}
