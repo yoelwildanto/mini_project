@@ -5,7 +5,7 @@ function Checkout(props) {
   return (
     <ChakraProvider>
       <Button
-        colorScheme='orange' // Use the correct prop name and the defined color scheme
+        colorScheme='orange' 
         variant='solid'
         size={props.size}
       >

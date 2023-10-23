@@ -3,7 +3,6 @@ import { Center, Divider, Box } from "@chakra-ui/react";
 import Bold from "../components/boldtext";
 import Grey from "../components/greyText";
 import Choosecard from "../components/cardstyle2";
-import Countertickets from "../components/counterticket"; 
 import Checkout from "../components/button";
 import Navbar from "../components/Navbar";
 
