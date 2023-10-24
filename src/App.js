@@ -2,6 +2,8 @@ import './App.css';
 import { Routes,Route } from 'react-router-dom';
 import LandingPage from "./HomePage/Home"
 import Navbar from './Components/Navbar';
+import Discover from './Discover/Discover';
+import CreateEvent from './page/Buat Event';
 
 function App() {
   return (
@@ -9,6 +11,8 @@ function App() {
       <Navbar/>
       <Routes>
       <Route path='/' element={<LandingPage/>}/>
+      <Route path='/discovery' element={<Discover/>}/>
+      <Route path='/create' element={<CreateEvent/>}/>
       </Routes>
     </div>
   );
