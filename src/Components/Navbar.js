@@ -10,7 +10,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navbar-left">
         <div className="logo">TicketZone</div>
-        <Box m={"0px auto"} display={"flex"} className="search">
+        <Box w={"100%"} m={"0px 50px"} display={"flex"} className="search">
           <Input
             width={"100%"}
             ml={"auto"}
@@ -18,13 +18,13 @@ const Navbar = () => {
             borderTopLeftRadius={"10px"}
             borderBottomLeftRadius={"10px"}
             border={"2px solid white"}
-            _placeholder={{ fontWeight: 300, color: "white" }}
+            _placeholder={{ fontsize: "10px",fontWeight: 300, color: "white" }}
             placeholder={"Cari event seru di sini"}
             borderRight={"transparent"}
           ></Input>
           <Button
             color={"white"}
-            bg={"#032466"}
+            bg={"red"}
             borderTopLeftRadius={"0px"}
             borderBottomLeftRadius={"0px"}
           >
@@ -35,32 +35,41 @@ const Navbar = () => {
       <div className="navbar-right">
         <ul className="navbar-nav">
           <Button
+            color={"white"}
             fontWeight={900}
             _hover={"transparent"}
             bg={"transparent"}
             border={"transparent"}
-            leftIcon={<HiMiniCalendarDays size={"25px"} />}
+            leftIcon={<HiMiniCalendarDays size={"25px"} color="white" />}
           >
             Buat Event
           </Button>
           <Button
+            color={"white"}
             fontWeight={900}
             _hover={"transparent"}
             bg={"none"}
-            leftIcon={<IoMdCompass size={"25px"} />}
+            leftIcon={<IoMdCompass size={"25px"} color={"white"} 
+            onClick={""}/>}
           >
             Discovery
           </Button>
           <li className="auth-navbar-button-container">
             <div className="nav-auth-button">
               <Button
+                color={"white"}
                 border={"2px solid white"}
                 variant={"outline"}
                 mr={"10px"}
+                _hover={{ color: "black", bg: "white" }}
               >
                 Daftar
               </Button>
-              <Button color={"white"} bg={"#032466"}>
+              <Button
+                color={"white"}
+                bg={"red"}
+                _hover={{ color: "black", bg: "white" }}
+              >
                 Masuk
               </Button>
             </div>
