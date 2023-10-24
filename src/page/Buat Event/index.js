@@ -56,20 +56,41 @@ export default function CreateEvent() {
                 ></Input>
               </Box>
               <Box my={"10px"}>
-                <FormLabel>Tanggal</FormLabel>
-                {/* <Input
+                <Flex>
+                  <Box w={"100%"}>
+                    <FormLabel>Tanggal Mulai</FormLabel>
+                    {/* <Input
                   placeholder="Tanggal Event"
                   borderColor={"black"}
                   _placeholder={{ color: "black" }}
                   _hover={{ borderColor: "white" }}
                   _focusVisible={{ borderColor: "white" }}
                 ></Input> */}
-                <Input
-                  bg={"#FAF9F6"}
-                  placeholder="Pilih Tanggal Event"
-                  size="md"
-                  type="date"
-                />
+                    <Input
+                      bg={"#FAF9F6"}
+                      placeholder="Pilih Tanggal Event"
+                      size="md"
+                      type="date"
+                    />
+                  </Box>
+                  <Spacer m={".5em"}/>
+                  <Box w={"100%"}>
+                    <FormLabel>Tanggal Selesai</FormLabel>
+                    {/* <Input
+                  placeholder="Tanggal Event"
+                  borderColor={"black"}
+                  _placeholder={{ color: "black" }}
+                  _hover={{ borderColor: "white" }}
+                  _focusVisible={{ borderColor: "white" }}
+                ></Input> */}
+                    <Input
+                      bg={"#FAF9F6"}
+                      placeholder="Pilih Tanggal Event"
+                      size="md"
+                      type="date"
+                    />
+                  </Box>
+                </Flex>
               </Box>
               <Box>
                 <Flex>
@@ -150,7 +171,9 @@ export default function CreateEvent() {
                 <Box>
                   <FormLabel>Deskripsi</FormLabel>
                   <Input
-                    bg={"#FAF9F6	"}
+                  as={"textarea"}
+                  rows={"8"}
+                    bg={"#FAF9F6"}
                     placeholder="Deskripsi Event"
                     borderColor={"black"}
                     // _placeholder={{ color: "black" }}
@@ -158,7 +181,7 @@ export default function CreateEvent() {
                     _focusVisible={{ borderColor: "white" }}
                   ></Input>
                 </Box>
-                <Box>
+                <Box my={"10px"}>
                   <FormLabel>Kategori</FormLabel>
                   <Select bg={"#FAF9F6"} placeholder="Pilih Kategori Event">
                     <option>Festival</option>
@@ -172,35 +195,19 @@ export default function CreateEvent() {
                   <FormLabel>Harga Tiket</FormLabel>
                   <Input
                     bg={"#FAF9F6"}
-                    placeholder="Masukkan Harga Tiket"
+                    placeholder="Harga Tiket"
                     // borderColor={"black"}
                     // _placeholder={{ color: "black" }}
                     // _hover={{ borderColor: "white" }}
                     // _focusVisible={{ borderColor: "white" }}
                   ></Input>
                 </Box>
-                {/* <FormLabel>Confirm Password</FormLabel>
-              <InputGroup>
-                <Input
-                  type={show ? "text" : "password"}
-                  placeholder="Confirm Your Password"
-                  // borderColor={"black"}
-                  // _placeholder={{ color: "black" }}
-                  // _hover={{ borderColor: "white" }}
-                  // _focusVisible={{ borderColor: "white" }}
-                ></Input>
-                <InputRightElement width="4em">
-                  <Button size="xs" onClick={handleClick}>
-                    {show ? "Hide" : "Show"}
-                  </Button>
-                </InputRightElement>
-              </InputGroup> */}
               </Box>
             </FormControl>
           </Box>
           <Box>
             <Center>
-              <Button>Buat Tiket Event</Button>
+              <Button _hover={{color: "black", bg:"white"}} color={"white"} bg={"#032466"}>Buat Tiket Event</Button>
             </Center>
           </Box>
         </VStack>

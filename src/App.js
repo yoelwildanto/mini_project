@@ -10,9 +10,9 @@ function App() {
     <div className="App">
       <Navbar/>
       <Routes>
-      <Route path='/a' element={<LandingPage/>}/>
+      <Route path='/' element={<LandingPage/>}/>
       <Route path='/discovery' element={<Discover/>}/>
-      <Route path='/' element={<CreateEvent/>}/>
+      <Route path='/create' element={<CreateEvent/>}/>
       </Routes>
     </div>
   );
