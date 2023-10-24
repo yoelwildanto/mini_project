@@ -4,25 +4,25 @@ import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { Box } from "@chakra-ui/react";
 
 const ReactCardSlider = (props) => {
-  const slideLeft = () => {
-    var slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft - 500;
-  };
+  // const slideLeft = () => {
+  //   var slider = document.getElementById("slider");
+  //   slider.scrollLeft = slider.scrollLeft - 500;
+  // };
 
-  const slideRight = () => {
-    var slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft + 500;
-  };
+  // const slideRight = () => {
+  //   var slider = document.getElementById("slider");
+  //   slider.scrollLeft = slider.scrollLeft + 500;
+  // };
 
   return (
     <Box>
       {/* <Text fontWeight={700} fontSize={"25px"} m={"10px 25px"} display={"flex"}>Upcoming Event</Text> */}
       <div id="main-slider-container">
-        <MdChevronLeft
+        {/* <MdChevronLeft
           size={40}
           className="slider-icon left"
           onClick={slideLeft}
-        />
+        /> */}
         <div id="slider">
           {props.slides.map((slide, index) => {
             return (
@@ -45,11 +45,11 @@ const ReactCardSlider = (props) => {
             );
           })}
         </div>
-        <MdChevronRight
+        {/* <MdChevronRight
           size={40}
           className="slider-icon right"
           onClick={slideRight}
-        />
+        /> */}
       </div>
     </Box>
   );
