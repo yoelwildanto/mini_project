@@ -46,8 +46,7 @@ function Transaction() {
   const [paymentStatus, setPaymentStatus] = useState(null);
 
   const handlePayment = (status) => {
-    // Send a request to your backend to record the payment status in the MySQL database.
-    // Update the state based on the response from the server.
+      // Ga tahu ya ini
     setPaymentStatus(status);
   };
 
