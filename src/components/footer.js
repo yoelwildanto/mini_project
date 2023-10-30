@@ -1,10 +1,11 @@
 import React from "react";
 import { Box, Grid, GridItem, VStack, Text } from "@chakra-ui/react";
 import {GiTicket} from "react-icons/gi"
+import "../CSS/Footer.css"
 
-const Footer = () => {
+const Footer = ({ marginTop }) => {
   return (
-    <Box my={"70px"} bg={"white"} height={"100px"}>
+    <Box mt={marginTop || "31px"} bg={"white"} height={"100px"}>
       <Grid templateColumns={"repeat(4, 1fr)"} bg={"#032466"} gap={10}>
         <GridItem  bg={"red"} ml={"100px"}>
           <VStack color={"#F6F4F1"}>

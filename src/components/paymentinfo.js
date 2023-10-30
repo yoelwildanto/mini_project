@@ -9,9 +9,9 @@ const TicketPriceCard = () => {
   const [serviceFee, setServiceFee] = useState(0);
 
   useEffect(() => {
-
-    // const totalTicketPrice = quantity * 10; 
-
+    // Calculate the total ticket price based on the quantity
+    // const totalTicketPrice = quantity * 10; // Assuming each ticket costs $10
+    // Calculate the total payment after applying the discount and adding the service fee
     // const totalPayment = totalTicketPrice - discountPrice + serviceFee;
     // setTotalPrice(totalTicketPrice);
     // setTotalPayment(totalPayment);

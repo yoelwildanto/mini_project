@@ -7,19 +7,17 @@ import Bold from '../components/boldtext';
 import TicketPriceCard from '../components/paymentinfo';
 import BackButton from '../components/backbutton';
 import Checkout from '../components/button';
-import Navbar from '../components/Navbar';
 import Footer from '../components/footer';
 
 function Ordersummary() {
   return (
     <>
-    <Navbar />
-    <ChakraProvider>
       <Center>
         <Card
           divider={<StackDivider borderColor={'alphaBlack.400'} alignItems={"center"} />}
           direction='column'
           alignItems='center'
+          bg="white" p={4} borderRadius="lg" boxShadow="lg"
         >
           <CardHeader textAlign={'left'} style={{ marginTop: '10px' }}>
             <Bold Text="Detail Pemesanan" />
@@ -56,7 +54,6 @@ function Ordersummary() {
         </Card>
       </Center>
       <Footer />
-    </ChakraProvider>
 </>
   );
 }
