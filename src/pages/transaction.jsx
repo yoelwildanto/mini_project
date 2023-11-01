@@ -46,7 +46,7 @@ function Transaction() {
   const [paymentStatus, setPaymentStatus] = useState(null);
 
   const handlePayment = (status) => {
-      // Ga tahu ya ini
+      // Ga tahu ya ini, opsi 1
     setPaymentStatus(status);
   };
 
@@ -57,7 +57,7 @@ function Transaction() {
           <Box p={4}>
             <Flex direction="column" align="center" justify="center">
               <Box maxW="md" bg="white" p={4} borderRadius="lg" boxShadow="lg">
-                {/* <Heading size="lg">Payment Page</Heading> */}
+                <Heading size="lg">Payment Page</Heading>
                 <Text mt={4}>Choose a payment status:</Text>
                 <Flex justify="center" mt={4}>
                   <Button
