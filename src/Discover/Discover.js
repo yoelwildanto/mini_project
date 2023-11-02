@@ -18,6 +18,7 @@ import {
 } from "@chakra-ui/react";
 import Footer from "../HomePage/Footer";
 import foto from "../Asset/h.jpg";
+import { FilterColumn } from "./filterColumn";
 
 const Discover = () => {
   return (
@@ -31,9 +32,10 @@ const Discover = () => {
             p={"10px"}
           >
             <VStack>
-              <Flex> Filter</Flex>
+              {/* <Flex> Filter</Flex>
               <Box> Lokasi </Box>
-              <Box> Kategori</Box>
+              <Box> Kategori</Box> */}
+              <FilterColumn/>
             </VStack>
           </Box>
         </GridItem>

@@ -1,4 +1,5 @@
 import React from "react";
+import {useNavigate} from 'react-router-dom'
 import { HiMiniCalendarDays } from "react-icons/hi2";
 import { IoMdCompass } from "react-icons/io";
 import { Box, Button, Input } from "@chakra-ui/react";
@@ -6,10 +7,19 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 import "../CSS/Navbar.css";
 
 const Navbar = () => {
+
+  const Navigate = useNavigate();
+  const handleToCreate = () => {
+    Navigate('/create');
+  };
+  const handleToDiscover = () => {
+    Navigate('/discovery');
+  };
+
   return (
     <div className="navbar">
       <div className="navbar-left">
-        <div className="logo">TicketZone</div>
+        <div className="logo"><a href="/">TicketZone</a></div>
         <Box w={"100%"} m={"0px 50px"} display={"flex"} className="search">
           <Input
             width={"100%"}
@@ -37,9 +47,11 @@ const Navbar = () => {
           <Button
             color={"white"}
             fontWeight={900}
+            colorScheme="red"
             _hover={"transparent"}
             bg={"transparent"}
             border={"transparent"}
+            onClick={handleToCreate}
             leftIcon={<HiMiniCalendarDays size={"25px"} color="white" />}
           >
             Buat Event
@@ -49,8 +61,9 @@ const Navbar = () => {
             fontWeight={900}
             _hover={"transparent"}
             bg={"none"}
+            onClick={handleToDiscover}
             leftIcon={<IoMdCompass size={"25px"} color={"white"} 
-            onClick={""}/>}
+            />}
           >
             Discovery
           </Button>
