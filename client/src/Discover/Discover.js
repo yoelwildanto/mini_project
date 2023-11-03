@@ -51,7 +51,7 @@ const Discover = () => {
                   borderRadius="lg"
                 />
                 <Stack mt="6" spacing="3">
-                  <Heading size="md">LEvent 1</Heading>
+                  <Heading size="md">Event 1</Heading>
 
                   <Text color="blue.600" fontSize="2xl">
                     $450
@@ -64,7 +64,7 @@ const Discover = () => {
             </GridItem>
             {/* {card end} */}
 
-            <GridItem>
+            {/* <GridItem>
             <Card maxW="sm">
               <CardBody>
                 <Image
@@ -83,9 +83,9 @@ const Discover = () => {
               <Divider />
               <CardFooter></CardFooter>
             </Card>
-            </GridItem>
+            </GridItem> */}
 
-            <GridItem>
+            {/* <GridItem>
             <Card maxW="sm">
               <CardBody>
                 <Image
@@ -104,9 +104,9 @@ const Discover = () => {
               <Divider />
               <CardFooter></CardFooter>
             </Card>
-            </GridItem>
+            </GridItem> */}
 
-            <GridItem>
+            {/* <GridItem>
             <Card maxW="sm">
               <CardBody>
                 <Image
@@ -125,7 +125,7 @@ const Discover = () => {
               <Divider />
               <CardFooter></CardFooter>
             </Card>
-            </GridItem>
+            </GridItem> */}
 
           </Grid>
           {/* card end */}
