@@ -1,31 +1,33 @@
 module.exports = (sequelize, Sequelize) => {
-    const user = sequelize.define(
+  const user = sequelize.define(
       "user",
       {
-        id: {
+       fullname: {
+          type: Sequelize.STRING,
+          alloNull: false,
+       },
+       email: {
+          type: Sequelize.STRING,
           allowNull: false,
-          autoIncrement: true,
-          primaryKey: true,
+       },
+       password: {
+          type: Sequelize.STRING,
+          alloNull: false,
+       },
+       roleId: {
           type: Sequelize.INTEGER,
-        },
-        username: {
-          type: Sequelize.STRING,
-          allowNull: false,
-        },
-        email: {
-          type: Sequelize.STRING,
-          allowNull: false,
-        },
-        password: {
-          type: Sequelize.STRING,
-          allowNull: false,
-        },
+       },
       },
       {
-        timestamps: false,
-        tableName: "users",
+          timestamps: false,
+          tableName: "users",
       }
-    );
-    return user;
+  );
+
+  user.associate = (models) => {
+     user.belongsTo(models.role, { foreignKey: "roleId"});
+    //  user.hasMany(models.event, { foreignKey: "userId"});
   };
-  
+
+  return user;
+};

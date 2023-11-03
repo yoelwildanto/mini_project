@@ -1,22 +1,24 @@
 module.exports = (sequelize, Sequelize) => {
-    const category = sequelize.define(
-      "category",
+  const eventCategory = sequelize.define(
+      "eventcategory", 
       {
-        id: {
-          allowNull: false,
-          autoIncrement: true,
-          primaryKey: true,
-          type: Sequelize.INTEGER,
-        },
-        categoriesName: {
+        categoryName: {
           type: Sequelize.STRING,
           allowNull: false,
+        },
+        image: {
+          type: Sequelize.STRING,
         },
       },
       {
         timestamps: false,
-        tableName: "categories",
+        tableName: "eventcategory"
       }
-    );
-    return category;
+  );
+
+  eventCategory.associate = (models) => {
+      eventCategory.hasOne(models.events, {foreignKey: "categoryId"});
   };
+
+  return eventCategory;
+}
