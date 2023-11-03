@@ -62,6 +62,7 @@ const Discover = () => {
               <CardFooter></CardFooter>
             </Card>
             </GridItem>
+            {/* {card end} */}
 
             <GridItem>
             <Card maxW="sm">

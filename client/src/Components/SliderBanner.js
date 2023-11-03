@@ -26,32 +26,32 @@ const SliderBanner = (props) => {
   const BANNER = [
     {
       id: 1,
-      image: "../Asset/a.jpg",
+      image: "https://loket-production-sg.s3.ap-southeast-1.amazonaws.com/images/ss/1691575224_AGeMc8.jpg",
     },
     {
       id: 2,
-      image: "../Asset/b.jpg",
+      image: "https://loket-production-sg.s3.ap-southeast-1.amazonaws.com/images/ss/1694850845_x0hYtf.jpg",
     },
     {
       id: 3,
-      image: "../Asset/c.jpg",
+      image: "../Asset/g.jpg",
     },
     {
       id: 4,
-      image: "../Asset/d.jpg",
+      image: "https://loket-production-sg.s3.ap-southeast-1.amazonaws.com/images/ss/1698911819_5wCxBt.jpg",
     },
 
     {
       id: 5,
-      image: "../Asset/e.jpg",
+      image: "https://loket-production-sg.s3.ap-southeast-1.amazonaws.com/images/ss/1698911819_5wCxBt.jpg",
     },
     {
       id: 6,
-      image: "../Asset/f.jpg",
+      image: "https://loket-production-sg.s3.ap-southeast-1.amazonaws.com/images/ss/1691575224_AGeMc8.jpg",
     },
     {
       id: 7,
-      image: "../Asset/g.jpg",
+      image: "https://loket-production-sg.s3.ap-southeast-1.amazonaws.com/images/ss/1694850845_x0hYtf.jpg",
     },
   ];
   console.log(BANNER);

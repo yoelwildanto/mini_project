@@ -1,6 +1,6 @@
 const db = require("../models");
 const { Op } = require("sequelize");
-const event = db.event;
+const event = db.events;
 
 const findEventsQuery = async (province = null) => {
   try {
