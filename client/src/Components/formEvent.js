@@ -1,22 +1,7 @@
 import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  Heading,
   Button,
-  HStack,
   Flex,
-  Link,
-  Text,
-  useDisclosure,
   Stack,
-  Box,
-  Image,
-  Divider,
   FormControl,
   InputGroup,
   Input,
@@ -27,7 +12,6 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useFormik } from "formik";
-import { color } from "framer-motion";
 import { useEffect, useState } from "react";
 import * as Yup from "yup";
 
@@ -39,8 +23,8 @@ const EventSchema = Yup.object().shape({
   eventStartDate: Yup.string().required("Start date is required"),
   eventLastDate: Yup.string().required("Last date required"),
   eventDescription: Yup.string().required("Description is required"),
-  eventHighlight: Yup.string().required("Highlight is required"),
-  eventInclude: Yup.string().required("Included is required"),
+//   eventHighlight: Yup.string().required("Highlight is required"),
+//   eventInclude: Yup.string().required("Included is required"),
   // eventImage: Yup.string(),
 });
 
@@ -214,8 +198,8 @@ const FormEvent = () => {
               <InputGroup bg={"#032466"} h={"20.5em"} rounded={10}>
                 <Input
                   h={"100%"}
-                //   background="#585454"
-                
+                  //   background="#585454"
+
                   color="white"
                   border="4px solid red"
                   placeholder="Upload Image"
@@ -238,7 +222,6 @@ const FormEvent = () => {
               <FormLabel>Event Name</FormLabel>
               <InputGroup>
                 <Input
-                
                   background="#032466"
                   color="white"
                   border="4px solid red"
@@ -296,16 +279,6 @@ const FormEvent = () => {
             >
               <FormLabel>Location</FormLabel>
               <InputGroup>
-                {/* <Input
-                    background="#262626"
-                    color="#585454"
-                    border="0"
-                    placeholder="Select the location of event"
-                    type="text"
-                    name="eventLocation"
-                    value={formik.values.eventLocation}
-                    onChange={formik.handleChange}
-                  ></Input> */}
                 <Select
                   name="eventLocation"
                   background="#032466"
@@ -439,9 +412,7 @@ const FormEvent = () => {
               isInvalid={
                 formik.touched.eventHighlight && formik.errors.eventHighlight
               }
-            >
-             
-            </FormControl>
+            ></FormControl>
             <FormControl
               isInvalid={
                 formik.touched.eventInclude && formik.errors.eventInclude

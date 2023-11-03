@@ -4,9 +4,7 @@ import {
   Grid,
   GridItem,
   VStack,
-  Flex,
   CardFooter,
-  Button,
   Text,
   Divider,
   Heading,
@@ -14,7 +12,6 @@ import {
   CardBody,
   Image,
   Stack,
-  ButtonGroup,
 } from "@chakra-ui/react";
 import Footer from "../HomePage/Footer";
 import foto from "../Asset/h.jpg";
