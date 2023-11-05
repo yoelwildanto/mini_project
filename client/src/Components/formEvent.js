@@ -25,7 +25,7 @@ const EventSchema = Yup.object().shape({
   eventDescription: Yup.string().required("Description is required"),
   //   eventHighlight: Yup.string().required("Highlight is required"),
   //   eventInclude: Yup.string().required("Included is required"),
-  eventImage: Yup.string(),
+  // eventImage: Yup.string(),
 });
 
 const CreateEvent2 = () => {

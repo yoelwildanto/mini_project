@@ -4,13 +4,10 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.createTable("eventAttendance", {
-      attendanceId: {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
-      },
-      eventId: {
         type: Sequelize.INTEGER,
       },
       ticketId: {
@@ -26,13 +23,16 @@ module.exports = {
         type: Sequelize.STRING,
       },
       phoneNumber: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       referralCode: {
         type: Sequelize.STRING,
       },
-      isCancel: {
-        type: Sequelize.BOOLEAN,
+      ticketTotal: {
+        type: Sequelize.INTEGER,
+      },
+      priceTotal: {
+        type: Sequelize.DECIMAL,
       },
     });
   },

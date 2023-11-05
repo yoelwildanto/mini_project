@@ -4,7 +4,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable("events", {
-      eventId: {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -38,11 +38,11 @@ module.exports = {
       description: {
         type: Sequelize.TEXT,
       },
-      highlight: {
-        type: Sequelize.TEXT,
-      },
       include: {
         type: Sequelize.TEXT,
+      },
+      image: {
+        type: Sequelize.STRING,
       },
     });
   },
