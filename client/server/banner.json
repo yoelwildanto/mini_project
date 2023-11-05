@@ -1,0 +1,33 @@
+{
+    "banner": [
+    {
+      "id": 1,
+      "image": "./Asset/a.jpg"
+    },
+    {
+        "id": 2,
+        "image": "./Asset/b.jpg"
+      }, 
+      {
+        "id": 3,
+        "image": "./Asset/c.jpg"
+      }, 
+      {
+        "id": 4,
+        "image": "./Asset/d.jpg"
+      },
+
+      {
+        "id": 5,
+        "image": "./Asset/e.jpg"
+      },
+      {
+        "id": 6,
+        "image": "./Asset/f.jpg"
+      },
+      {
+        "id": 7,
+        "image": "../Asset/g.jpg"
+      }
+]
+}
