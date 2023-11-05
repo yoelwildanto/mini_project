@@ -23,12 +23,12 @@ const EventSchema = Yup.object().shape({
   eventStartDate: Yup.string().required("Start date is required"),
   eventLastDate: Yup.string().required("Last date required"),
   eventDescription: Yup.string().required("Description is required"),
-//   eventHighlight: Yup.string().required("Highlight is required"),
-//   eventInclude: Yup.string().required("Included is required"),
-  // eventImage: Yup.string(),
+  //   eventHighlight: Yup.string().required("Highlight is required"),
+  //   eventInclude: Yup.string().required("Included is required"),
+  eventImage: Yup.string(),
 });
 
-const FormEvent = () => {
+const CreateEvent2 = () => {
   const [fieldImage, setFieldImage] = useState(null);
   const [category, setCategory] = useState([]);
   const [location, setLocation] = useState([]);
@@ -36,7 +36,7 @@ const FormEvent = () => {
   const fetchCategory = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8080/event/list-category"
+        "http://localhost:8080/event/category-list"
       );
       setCategory(response.data.data);
       console.log(response.data.data);
@@ -48,7 +48,7 @@ const FormEvent = () => {
   const fetchLocation = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8080/event/list-location"
+        "http://localhost:8080/event/location-list"
       );
       setLocation(response.data.data);
       console.log(response.data.data);
@@ -69,9 +69,7 @@ const FormEvent = () => {
     time,
     startDate,
     endDate,
-    description,
-    highlight,
-    include
+    description
   ) => {
     try {
       let formData = new FormData();
@@ -82,27 +80,10 @@ const FormEvent = () => {
       formData.append("eventStartDate", startDate);
       formData.append("eventLastDate", endDate);
       formData.append("eventDescription", description);
-      formData.append("eventHighlight", highlight);
-      formData.append("eventInclude", include);
       formData.append("image", fieldImage);
-      await axios.post(
-        "http://localhost:8080/event/add-event",
-        // await axios.post("http://localhost:8000/event", {
-        // eventName,
-        // categoryId,
-        // locationId,
-        // time,
-        // startDate,
-        // endDate,
-        // description,
-        // highlight,
-        // include,
-        // fieldImage,
-        formData
-      );
+      await axios.post("http://localhost:8080/event/add-event", formData);
       alert("Create Event Success");
     } catch (err) {
-      // console.log(err);
       alert("Error");
     }
   };
@@ -116,8 +97,6 @@ const FormEvent = () => {
       eventStartDate: "",
       eventLastDate: "",
       eventDescription: "",
-      eventHighlight: "",
-      eventInclude: "",
       eventImage: null,
     },
 
@@ -130,9 +109,7 @@ const FormEvent = () => {
         values.eventTime,
         values.eventStartDate,
         values.eventLastDate,
-        values.eventDescription,
-        values.eventHighlight,
-        values.eventInclude
+        values.eventDescription
       );
     },
   });
@@ -150,47 +127,6 @@ const FormEvent = () => {
           justifyContent="space-between"
         >
           <Stack spacing={5} w={{ base: "full", lg: "50%" }} h="full">
-            {/* <Text>Upload Image</Text> */}
-            {/* <Flex gap="1em">
-                <Box
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  background="#262626"
-                  h="224px"
-                  w="424px"
-                >
-                  <Image src="./images/no-image.png" />
-                </Box>
-                <Flex
-                  flexDirection="column"
-                  justifyContent="flex-end"
-                  alignItems="center"
-                  gap=".7em"
-                >
-                  <Button
-                    variant={"solid"}
-                    backgroundColor="#3C891C"
-                    size={"sm"}
-                    w="120px"
-                    h="40px"
-                    mr={4}
-                  >
-                    Upload Image
-                  </Button>
-                  <Button
-                    variant={"unstyled"}
-                    border="1px solid #3C891C"
-                    size={"sm"}
-                    w="120px"
-                    h="40px"
-                    mr={4}
-                  >
-                    Remove
-                  </Button>
-                </Flex>
-              </Flex> */}
-
             <FormControl
               isInvalid={formik.touched.eventImage && formik.errors.eventImage}
             >
@@ -447,4 +383,4 @@ const FormEvent = () => {
   );
 };
 
-export default FormEvent;
+export default CreateEvent2;
