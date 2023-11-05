@@ -1,14 +1,18 @@
 const express = require("express");
 const router = express.Router();
-
-// const { body } = require("express-validator");
-
+const { uploadEventFile } = require("../middleware/multer");
 const {
   createEventController,
-  findEventsController,
+  getEventsController,
+  getCategoryController,
+  getLocationController,
+  getBannerController,
 } = require("../controllers/eventController");
 
-router.get("/", findEventsController);
-router.post("/create", createEventController);
+router.get("/category-list", getCategoryController);
+router.get("/location-list", getLocationController);
+router.post("/add-event", uploadEventFile, createEventController);
+router.get("/list-all-event", getEventsController);
+router.get("/Banner", getBannerController);
 
 module.exports = router;

@@ -23,8 +23,8 @@ app.use(
     })
 );
 
-const Router = require("./routes/Router");
-app.use("/ticketzone", Router)
+const eventRouter = require("./routes/eventRoute");
+app.use("/event", eventRouter)
 
 app.listen(PORT, (req, res) =>{
     console.log(`server listening on port ${PORT}`);
