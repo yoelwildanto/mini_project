@@ -226,7 +226,7 @@ const FormEvent = () => {
                   color="white"
                   border="4px solid red"
                   _placeholder={{ color: "white" }}
-                  placeholder="Type event's here name here"
+                  placeholder="Type event name here"
                   type="text"
                   name="eventName"
                   value={formik.values.eventName}
@@ -277,14 +277,14 @@ const FormEvent = () => {
                 formik.touched.eventLocation && formik.errors.eventLocation
               }
             >
-              <FormLabel>Location</FormLabel>
+              <FormLabel>City</FormLabel>
               <InputGroup>
                 <Select
                   name="eventLocation"
                   background="#032466"
                   color="white"
                   border="4px solid red"
-                  placeholder="Select category event"
+                  placeholder="Select City"
                   value={formik.values.eventLocation}
                   onChange={formik.handleChange}
                 >
@@ -357,7 +357,7 @@ const FormEvent = () => {
                   formik.touched.eventLastDate && formik.errors.eventLastDate
                 }
               >
-                <FormLabel>Last Date</FormLabel>
+                <FormLabel>End Date</FormLabel>
                 <InputGroup>
                   <Input
                     background="#032466"
@@ -437,7 +437,7 @@ const FormEvent = () => {
                 </FormErrorMessage>
               )} */}
               <Button alignItems={"center"} type="submit">
-                Create
+                Create Event
               </Button>
             </FormControl>
           </Stack>
