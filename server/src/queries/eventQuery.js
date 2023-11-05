@@ -1,43 +1,81 @@
 const db = require("../models");
-const { Op } = require("sequelize");
-const event = db.events;
+const { Op, Sequelize } = require("sequelize");
+const category = db.eventcategory;
+const location = db.eventlocation;
+const events = db.events;
 
-const findEventsQuery = async (province = null) => {
+const createEventQuery = async (
+  eventName,
+  categoryId,
+  locationId,
+  userId,
+  startDate,
+  endDate,
+  time,
+  eventStatus,
+  description,
+  image
+) => {
   try {
-    const filter = {};
-    if (province)
-      filter.where = {
-        province: {
-          [Op.like]: `%${province}%`,
-        },
-      };
-    const res = await event.findAll({
-      ...filter,
+    const res = await events.create({
+      eventName,
+      categoryId,
+      locationId,
+      userId,
+      startDate,
+      endDate,
+      time,
+      eventStatus,
+      description,
+      image,
     });
+
     return res;
   } catch (err) {
     throw err;
   }
 };
 
-const createEventQuery = async (
-  eventName,
-  date,
-  province,
-  city,
-  address,
-  price,
-  eventDescription
-) => {
+const getCategoryQuery = async () => {
   try {
-    const res = await event.create({
-      eventName,
-      date,
-      province,
-      city,
-      address,
-      price,
-      eventDescription,
+    const res = await category.findAll();
+    return res;
+  } catch (err) {
+    throw err;
+  }
+};
+
+const getLocationQuery = async () => {
+  try {
+    const res = await location.findAll();
+    return res;
+  } catch (err) {
+    throw err;
+  }
+};
+
+const getEventsQuery = async () => {
+  try {
+    const res = await events.findAll({
+      include: [db.eventlocation, db.eventcategory, db.tickets],
+    });
+
+    return res;
+  } catch (err) {
+    throw err;
+  }
+};
+
+const getBannerQuery = async () => {
+  try {
+
+    const res = await events.findAll({
+      attributes: ["id", "image", "eventStatus"],
+      where: {
+        [Op.and]: [{ eventStatus: true }],
+      },
+      order: Sequelize.literal("rand()"),
+      limit: 5,
     });
 
     return res;
@@ -48,5 +86,8 @@ const createEventQuery = async (
 
 module.exports = {
   createEventQuery,
-  findEventsQuery,
+  getCategoryQuery,
+  getLocationQuery,
+  getEventsQuery,
+  getBannerQuery,
 };

@@ -30,12 +30,6 @@ module.exports = (sequelize, Sequelize) => {
       description: {
         type: Sequelize.TEXT,
       },
-      highlight: {
-        type: Sequelize.TEXT,
-      },
-      include: {
-        type: Sequelize.TEXT,
-      },
       image: {
         type: Sequelize.STRING,
       },
