@@ -3,7 +3,7 @@ const multer = require("multer");
 
 const eventStorage = multer.diskStorage({
   destination: (req, res, cb) => {
-    cb(null, path.join(__dirname, "../public/images/events"));
+    cb(null, path.join(__dirname, "../public/image/events"));
   },
   filename: (req, file, cb) => {
     // const { username } = req.user;
