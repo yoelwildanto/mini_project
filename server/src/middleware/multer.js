@@ -14,7 +14,7 @@ const eventStorage = multer.diskStorage({
 
 const avatarStorage = multer.diskStorage({
   destination: (req, res, cb) => {
-    cb(null, path.join(__dirname, "../public/images/avatar"));
+    cb(null, path.join(__dirname, "../public/image/avatar"));
   },
   filename: (req, file, cb) => {
     const { username } = req.body;
