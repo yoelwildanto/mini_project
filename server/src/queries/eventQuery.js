@@ -12,7 +12,7 @@ const createEventQuery = async (
   startDate,
   endDate,
   time,
-  eventStatus,
+  eventStatus = true,
   description,
   image
 ) => {

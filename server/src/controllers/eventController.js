@@ -19,6 +19,7 @@ const createEventController = async (req, res) => {
       eventStatus,
       description,
     } = req.body;
+    console.log(req.body)
     const result = await createEventService(
       eventName,
       categoryId,

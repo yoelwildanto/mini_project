@@ -26,6 +26,9 @@ app.use(
 const eventRouter = require("./routes/eventRoute");
 app.use("/event", eventRouter)
 
+app.use("/uploads", express.static(path.join(__dirname, "./public/image")));
+
+
 app.listen(PORT, (req, res) =>{
     console.log(`server listening on port ${PORT}`);
 })
