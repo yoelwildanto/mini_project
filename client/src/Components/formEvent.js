@@ -26,6 +26,7 @@ const EventSchema = Yup.object().shape({
   address: Yup.string().required("Address is required"),
   hargatiket: Yup.number().required("Price is required"),
   totaltiket: Yup.number().required("Ticket Quantity is required"),
+
   //   eventHighlight: Yup.string().required("Highlight is required"),
   //   eventInclude: Yup.string().required("Included is required"),
   // eventImage: Yup.string(),
@@ -76,6 +77,7 @@ const CreateEvent2 = () => {
     address,
     hargatiket,
     totaltiket
+    description
   ) => {
     try {
       let formData = new FormData();
@@ -91,6 +93,7 @@ const CreateEvent2 = () => {
       formData.append("hargatiket", hargatiket);
       formData.append("totaltiket", totaltiket);
       console.log(formData);
+      console.log(formData)
       await axios.post("http://localhost:8080/event/add-event", formData);
       alert("Create Event Success");
     } catch (err) {
@@ -126,6 +129,7 @@ const CreateEvent2 = () => {
         values.address,
         values.hargatiket,
         values.totaltiket,
+        values.description
       );
     },
   });
@@ -226,6 +230,7 @@ const CreateEvent2 = () => {
 
             <FormControl
               isInvalid={formik.touched.locationId && formik.errors.locationId}
+
             >
               <FormLabel>City</FormLabel>
               <InputGroup>
@@ -254,6 +259,7 @@ const CreateEvent2 = () => {
               )}
             </FormControl>
             <FormControl isInvalid={formik.touched.time && formik.errors.time}>
+
               <FormLabel>Time</FormLabel>
               <InputGroup>
                 <Input
@@ -275,6 +281,7 @@ const CreateEvent2 = () => {
             <Flex gap="1em">
               <FormControl
                 isInvalid={formik.touched.startDate && formik.errors.startDate}
+
               >
                 <FormLabel>Start Date</FormLabel>
                 <InputGroup>
@@ -295,6 +302,7 @@ const CreateEvent2 = () => {
               </FormControl>
               <FormControl
                 isInvalid={formik.touched.endDate && formik.errors.endDate}
+
               >
                 <FormLabel>End Date</FormLabel>
                 <InputGroup>
@@ -312,6 +320,7 @@ const CreateEvent2 = () => {
                 {formik.touched.endDate && formik.errors.endDate && (
                   <FormErrorMessage>{formik.errors.endDate}</FormErrorMessage>
                 )}
+
               </FormControl>
             </Flex>
           </Stack>
@@ -319,6 +328,7 @@ const CreateEvent2 = () => {
             <FormControl
               isInvalid={
                 formik.touched.description && formik.errors.description
+
               }
             >
               <FormLabel>Description</FormLabel>
@@ -406,6 +416,7 @@ const CreateEvent2 = () => {
             <Button marginTop={"3em"} alignItems={"center"} type="submit">
                 Create Event
               </Button>
+
           </Stack>
         </Flex>
       </form>

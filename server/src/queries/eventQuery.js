@@ -17,6 +17,7 @@ const createEventQuery = async (
   address,
   hargatiket,
   totaltiket,
+
   image
 ) => {
   try {
@@ -74,6 +75,7 @@ const getEventsQuery = async () => {
 
 const getBannerQuery = async () => {
   try {
+
     const res = await events.findAll({
       attributes: ["id", "image", "eventStatus"],
       where: {

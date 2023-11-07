@@ -7,6 +7,7 @@ import Discover from './Discover/Discover';
 import CreateEvent2 from './Components/formEvent';
 import { Discovery } from './Discover';
 
+
 function App() {
   return (
     <div className="App">
