@@ -9,6 +9,8 @@ import {
   Heading,
   Select,
 } from "@chakra-ui/react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -30,14 +32,29 @@ function Register() {
         register(values.email, values.fullname, values.password, values.roleId)
       )
         .then(() => {
-          navigate("/");
           window.location.reload();
+          navigate("/");
         })
         .catch((e) => {
           return e;
         });
     },
   });
+
+  const [roles, setRoles] = useState([]);
+  const getRoles = async () => {
+    try {
+      const GET_ROLES = "http://localhost:8080/api/auth/roles";
+      const response = await axios.get(GET_ROLES);
+      setRoles(response.data);
+    } catch (error) {
+      return error;
+    }
+  };
+
+  React.useEffect(() => {
+    getRoles();
+  }, []);
 
   return (
     <Box
@@ -97,8 +114,9 @@ function Register() {
               placeholder="Your Roles"
               value={formik.values.roleId}
               onChange={formik.handleChange}>
-              <option value="1">EO</option>
-              <option value="2">User</option>
+              {roles.map((item) => {
+                return <option value={item.id}>{item.name}</option>;
+              })}
             </Select>
             {formik.touched.roleId && formik.errors.roleId && (
               <FormErrorMessage>{formik.errors.roleId}</FormErrorMessage>

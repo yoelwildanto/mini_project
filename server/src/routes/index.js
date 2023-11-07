@@ -3,4 +3,5 @@ const express = require("express");
 const router = express.Router();
 
 const userRoute = require("./userRoute");
-module.exports = { userRoute };
+const eventRoute = require("./eventRoute");
+module.exports = { userRoute, eventRoute };

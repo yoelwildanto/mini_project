@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const db = require("../models");
 const User = db.User;
-const createTransporter = require("../helpers/email");
+const Role = db.Role;
 
 exports.login = async function (req, res) {
   try {
@@ -26,8 +26,6 @@ exports.login = async function (req, res) {
     res.status(500).json({ message: "Server error" });
   }
 };
-
-// reset password
 
 exports.register = async (req, res) => {
   try {
@@ -60,55 +58,6 @@ exports.register = async (req, res) => {
   }
 };
 
-exports.resetPassword = async (req, res) => {
-  const { email } = req.body;
-  try {
-    const user = await User.findOne({ where: { email } });
-    if (!user) {
-      return res.status(404).send({ error: "User not found" });
-    }
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
-    });
-    const transporter = createTransporter();
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: email,
-      subject: "Reset Password",
-      text: `Click this link to reset your password: ${process.env.URL}/tupo-dashboard#/auth/resetPassword/${token}`,
-    });
-    res.send({ message: "Password reset email sent" });
-  } catch (error) {
-    res
-      .status(500)
-      .send({ error: "An error occurred while resetting the password" });
-  }
-};
-
-exports.handleResetPassword = async (req, res) => {
-  const { token } = req.params;
-  const { password } = req.body;
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const user = await User.findByPk(decoded.id);
-    if (!user) return res.status(404).send({ error: "User not found" });
-    const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(password, salt);
-    await user.save();
-    res.send({ message: "Password updated successfully" });
-  } catch (error) {
-    if (error.name === "TokenExpiredError") {
-      return res.status(400).send({ error: "Token expired" });
-    }
-    if (error.name === "JsonWebTokenError") {
-      return res.status(400).send({ error: "Invalid token" });
-    }
-    res
-      .status(500)
-      .send({ error: "An error occurred while resetting the password" });
-  }
-};
-
 exports.getUserData = async (req, res) => {
   const authHeader = req.headers.authorization;
   if (!authHeader) {
@@ -132,5 +81,23 @@ exports.getUserData = async (req, res) => {
     res
       .status(500)
       .send({ error: "An error occurred while getting user data" });
+  }
+};
+
+exports.getAllUser = async (req, res) => {
+  try {
+    const users = await User.findAll();
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+exports.getAllRole = async (req, res) => {
+  try {
+    const role = await Role.findAll();
+    res.status(200).json(role);
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
   }
 };
