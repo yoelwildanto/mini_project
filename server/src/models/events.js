@@ -16,10 +16,10 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.INTEGER,
       },
       startDate: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
       },
       endDate: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
       },
       time: {
         type: Sequelize.TIME,

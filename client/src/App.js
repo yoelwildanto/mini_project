@@ -14,9 +14,9 @@ function App() {
       <Navbar/>
       <Routes>
       <Route path='/' element={<LandingPage/>}/>
-//       <Route path='/discovery' element={<Discover/>}/>
+      {/* <Route path='/discovery' element={<Discover/>}/> */}
       <Route path='/create' element={<CreateEvent2/>}/>
-      <Route path='/disovery' element={<Discovery/>}/>
+      <Route path='/discovery' element={<Discovery/>}/>
 
       </Routes>
     </div>

@@ -77,7 +77,6 @@ const CreateEvent2 = () => {
     address,
     hargatiket,
     totaltiket
-    description
   ) => {
     try {
       let formData = new FormData();
