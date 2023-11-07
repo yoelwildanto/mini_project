@@ -69,9 +69,9 @@ const Footer = () => {
               {" "}
               Inspirasi Event{" "}
             </Text>
-            <Text fontWeight={500} fontSize={"13px"}> Konser </Text>
-            <Text fontWeight={500} fontSize={"13px"}> Festival </Text>
-            <Text fontSize={"13px"} fontWeight={500}> Workshop </Text>
+            <Text fontWeight={500} fontSize={"13px"}> Musik </Text>
+            <Text fontWeight={500} fontSize={"13px"}> Kesenian </Text>
+            <Text fontSize={"13px"} fontWeight={500}> Hiburan </Text>
           </VStack>
         </GridItem>
       </Grid>

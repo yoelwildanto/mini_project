@@ -7,10 +7,10 @@ export const FilterColumn = () => {
         <Text>Filter</Text>
         <FormLabel> Category</FormLabel>
         <Select placeholder="Select Category">
-            <option value="">Music</option>
+            <option value="">Musik</option>
             <option value="">Hiburan</option>
             <option value="">Bisnis</option>
-            <option value="">a</option>
+            <option value="">Kultur dan Kesenian</option>
         </Select>
       </FormControl>
       <FormControl>
@@ -20,6 +20,7 @@ export const FilterColumn = () => {
             <option value="">Bandung</option>
             <option value="">Jakarta</option>
             <option value="">Surabaya</option>
+            <option value="">Yogyakarta</option>
         </Select>
       </FormControl>
       <Button colorScheme="red" color={"white"} bg={"#032466"} mt={"7em"}> Filter </Button>

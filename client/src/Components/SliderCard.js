@@ -1,6 +1,6 @@
 import React from "react";
 import "../CSS/CardSlider.css";
-import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+// import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { Box } from "@chakra-ui/react";
 
 const ReactCardSlider = (props) => {

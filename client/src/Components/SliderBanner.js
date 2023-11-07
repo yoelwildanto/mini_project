@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import axios from "axios";
 // import "../CSS/SliderBanner.css";
 import "../CSS/AutoSlider.css";
 import { PrevArrow, NextArrow } from "./Arrow";
@@ -26,47 +27,71 @@ const SliderBanner = (props) => {
   const BANNER = [
     {
       id: 1,
-      image: "../Asset/a.jpg",
+      image:
+        "https://loket-production-sg.s3.ap-southeast-1.amazonaws.com/images/ss/1691575224_AGeMc8.jpg",
     },
     {
       id: 2,
-      image: "../Asset/b.jpg",
+      image:
+        "https://loket-production-sg.s3.ap-southeast-1.amazonaws.com/images/ss/1694850845_x0hYtf.jpg",
     },
     {
       id: 3,
-      image: "../Asset/c.jpg",
+      image: "../Asset/g.jpg",
     },
     {
       id: 4,
-      image: "../Asset/d.jpg",
+      image:
+        "https://loket-production-sg.s3.ap-southeast-1.amazonaws.com/images/ss/1698911819_5wCxBt.jpg",
     },
 
     {
       id: 5,
-      image: "../Asset/e.jpg",
+      image:
+        "https://loket-production-sg.s3.ap-southeast-1.amazonaws.com/images/ss/1698911819_5wCxBt.jpg",
     },
     {
       id: 6,
-      image: "../Asset/f.jpg",
+      image:
+        "https://loket-production-sg.s3.ap-southeast-1.amazonaws.com/images/ss/1691575224_AGeMc8.jpg",
     },
     {
       id: 7,
-      image: "../Asset/g.jpg",
+      image:
+        "https://loket-production-sg.s3.ap-southeast-1.amazonaws.com/images/ss/1694850845_x0hYtf.jpg",
     },
   ];
-  console.log(BANNER);
+
+  const [eventImage, setEventImage] = useState([]);
+
+  const fetchEventImage = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:8080/event/banner",
+        {}
+      );
+      console.log(response.data.data);
+      setEventImage(response.data.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchEventImage();
+  }, []);
 
   return (
     <div className="slider-banner">
       <Slider {...settings}>
         {
           // props.banners.map((a,index)=>{
-          BANNER.map((a, index) => {
+            eventImage.map((a, index) => {
             // console.log(a.image)
             return (
               <div key={index}>
                 {/* <img src={require(`${a.image}`)} alt="Slide 1" /> */}
-                <img src={a.image} alt="Slide 1" />
+                <img src={`${process.env.REACT_APP_IMAGE_URL}/events/${a?.image}`} alt="Slide 1" />
               </div>
             );
           })

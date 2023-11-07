@@ -3,7 +3,8 @@ import { Routes,Route } from 'react-router-dom';
 import LandingPage from "./HomePage/Home"
 import Navbar from './Components/Navbar';
 import Discover from './Discover/Discover';
-import CreateEvent from './page/Buat Event';
+// import CreateEvent from './page/Buat Event';
+import CreateEvent2 from './Components/formEvent';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <Routes>
       <Route path='/' element={<LandingPage/>}/>
       <Route path='/discovery' element={<Discover/>}/>
-      <Route path='/create' element={<CreateEvent/>}/>
+      <Route path='/create' element={<CreateEvent2/>}/>
       </Routes>
     </div>
   );

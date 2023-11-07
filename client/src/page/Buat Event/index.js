@@ -2,16 +2,12 @@ import React from "react";
 import {
   Box,
   VStack,
-  Stack,
   Checkbox,
   Button,
-  Image,
   Text,
   FormControl,
   Input,
   FormLabel,
-  InputGroup,
-  InputRightElement,
   Center,
   Spacer,
   Flex,
@@ -20,8 +16,8 @@ import {
 import Footer from "../../HomePage/Footer";
 
 export default function CreateEvent() {
-  const [show, setShow] = React.useState(false);
-  const handleClick = () => setShow(!show);
+  // const [show, setShow] = React.useState(false);
+  // const handleClick = () => setShow(!show);
 
   return (
     <Box>

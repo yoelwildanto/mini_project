@@ -4,9 +4,7 @@ import {
   Grid,
   GridItem,
   VStack,
-  Flex,
   CardFooter,
-  Button,
   Text,
   Divider,
   Heading,
@@ -14,7 +12,6 @@ import {
   CardBody,
   Image,
   Stack,
-  ButtonGroup,
 } from "@chakra-ui/react";
 import Footer from "../HomePage/Footer";
 import foto from "../Asset/h.jpg";
@@ -51,7 +48,7 @@ const Discover = () => {
                   borderRadius="lg"
                 />
                 <Stack mt="6" spacing="3">
-                  <Heading size="md">LEvent 1</Heading>
+                  <Heading size="md">Event 1</Heading>
 
                   <Text color="blue.600" fontSize="2xl">
                     $450
@@ -62,8 +59,9 @@ const Discover = () => {
               <CardFooter></CardFooter>
             </Card>
             </GridItem>
+            {/* {card end} */}
 
-            <GridItem>
+            {/* <GridItem>
             <Card maxW="sm">
               <CardBody>
                 <Image
@@ -82,9 +80,9 @@ const Discover = () => {
               <Divider />
               <CardFooter></CardFooter>
             </Card>
-            </GridItem>
+            </GridItem> */}
 
-            <GridItem>
+            {/* <GridItem>
             <Card maxW="sm">
               <CardBody>
                 <Image
@@ -103,9 +101,9 @@ const Discover = () => {
               <Divider />
               <CardFooter></CardFooter>
             </Card>
-            </GridItem>
+            </GridItem> */}
 
-            <GridItem>
+            {/* <GridItem>
             <Card maxW="sm">
               <CardBody>
                 <Image
@@ -124,7 +122,7 @@ const Discover = () => {
               <Divider />
               <CardFooter></CardFooter>
             </Card>
-            </GridItem>
+            </GridItem> */}
 
           </Grid>
           {/* card end */}
