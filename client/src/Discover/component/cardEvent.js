@@ -12,7 +12,9 @@ export const DiscoveryCardEvent = (props) => {
   const dataEvent = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/event?categoryId=${props.categoryId}&cityId=${props.locationId}`
+        // `http://localhost:8080/event?categoryId=${props.categoryId}&cityId=${props.locationId}`
+        `http://localhost:8080/event/list-all-event`
+
       );
       setEvent(response.data.data);
     } catch (err) {
@@ -64,12 +66,12 @@ export const DiscoveryCardEvent = (props) => {
               </Box>
               <Flex direction={"column"} h={"full"} p={"0px 15px 10px 15px"}>
                 <Box display={"flex"} flexDirection={"column"} gap={3}>
-                  <Box>{data.title}</Box>
+                  <Box>{data.eventName}</Box>
                   <Box>
-                    {data.start_date} - {data.end_date}
+                    {data.startDate} - {data.endDate}
                   </Box>
                   <Box fontWeight={700} color={"home.primary"}>
-                    {data.price}
+                    {data.hargatiket}
                   </Box>
                 </Box>
 
@@ -86,7 +88,7 @@ export const DiscoveryCardEvent = (props) => {
                   ) : (
                     <Avatar src="https://bit.ly/broken-link" size={"sm"} />
                   )}
-                  <Box>{data.user.username}</Box>
+                  {/* <Box>{data.user.username}</Box> */}
                 </Box>
               </Flex>
             </Card>
