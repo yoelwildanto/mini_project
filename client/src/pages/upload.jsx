@@ -73,7 +73,7 @@ function UploadImage() {
         </Box>
       </Center>
       <Center>
-        <Button colorScheme="red" size="md" p={2}>
+        <Button colorScheme="red" size="md" my = '2' p={2}>
           Back
         </Button>
       </Center>
