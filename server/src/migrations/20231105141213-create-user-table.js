@@ -22,14 +22,14 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      // roleId: {
-      //   type: Sequelize.INTEGER,
-      //   references: {
-      //     model: "Roles",
-      //     key: "id",
-      //   },
-      //   onDelete: "CASCADE",
-      // },
+      roleId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Roles",
+          key: "id",
+        },
+        onDelete: "CASCADE",
+      },
       address: {
         type: Sequelize.STRING,
       },

@@ -1,34 +1,69 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const { User, Status } = require("../models");
+const db = require("../models");
+const User = db.User;
 const createTransporter = require("../helpers/email");
 
-exports.login = async (req, res) => {
-  const { fullname, password } = req.body;
+exports.login = async function (req, res) {
   try {
-    const user = await User.findOne({
-      where: { fullname },
-      include: Status,
-    });
+    const user = await User.findOne({ where: { email: req.body.email } });
     if (!user) {
-      return res.status(404).send({ error: "User not found" });
+      return res.status(400).json({ message: "Email not found" });
     }
-    if (!user.status) {
-      return res.status(400).send({ error: "User is not active" });
+    const validPassword = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
+    if (!validPassword) {
+      return res.status(400).json({ message: "Invalid password" });
     }
-    if (!(await user.validPassword(password))) {
-      return res.status(400).send({ error: "Invalid password" });
-    }
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
-      expiresIn: "12h",
-    });
-    res.send({ user, token });
+    const token = jwt.sign(
+      { id: user.id, email: user.email },
+      process.env.JWT_SECRET_KEY
+    );
+    res.status(200).json({ user: user, token: token });
   } catch (error) {
-    res.status(500).send({ error: "An error occurred while logging in" });
+    res.status(500).json({ message: "Server error" });
   }
 };
 
 // reset password
+
+exports.createUser = async (req, res) => {
+  try {
+    const existingUser = await User.findOne({
+      where: { email: req.body.email },
+    });
+    if (existingUser) {
+      return res.status(400).json({ message: "Email already used" });
+    }
+    if (req.body.password !== req.body.confirmPassword) {
+      return res
+        .status(400)
+        .json({ message: "Password and confirm password must be the same" });
+    }
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    // const referralCode = jwt.sign(
+    //   { fullname: req.body.fullname, email: req.body.email },
+    //   process.env.JWT_SECRET_KEY
+    // );
+    const newUser = await User.create({
+      fullname: req.body.fullname,
+      email: req.body.email,
+      password: hashedPassword,
+      // address: req.body.address,
+      // referralCode: referralCode,
+      roleId: 2,
+      point: 0,
+      isVerified: true,
+    });
+
+    res.status(201).json(newUser);
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
 exports.resetPassword = async (req, res) => {
   const { email } = req.body;
   try {

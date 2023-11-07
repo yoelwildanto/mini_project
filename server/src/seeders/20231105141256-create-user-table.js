@@ -10,7 +10,7 @@ module.exports = {
         fullname: "EO John Doe",
         email: "EOTest@example.com",
         password: await bcrypt.hash("password", 10),
-        // roleId: 1,
+        roleId: 1,
         address: "123 Main St",
         referralCode: jwt.sign(
           {
@@ -28,7 +28,7 @@ module.exports = {
         fullname: "User John Doe",
         email: "UserTest@example.com",
         password: await bcrypt.hash("password@", 10),
-        // roleId: 2,
+        roleId: 2,
         address: "123 Main St",
         referralCode: jwt.sign(
           {

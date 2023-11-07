@@ -3,25 +3,18 @@ const express = require("express");
 const router = express.Router();
 const {
   login,
+  createUser,
   resetPassword,
   handleResetPassword,
   getUserData,
 } = require("../controllers/userController");
-const validateRequest = require("../middleware/validateRequest");
-const authenticate = require("../middleware/authenticate");
+// const validateRequest = require("../middleware/validateRequest");
+// const authenticate = require("../middleware/authenticate");
 // const validateCreateUser = require("../middleware/validateCreateUser");
 // const authenticateToken = require("../middleware/authenticateToken");
 
 router.post("/login", login);
-// router.post(
-//   "/login",
-//   [
-//     body("email").notEmpty().withMessage("Email must be valid"),
-//     body("password").notEmpty().withMessage("Password is required"),
-//   ],
-//   validateRequest,
-//   login
-// );
+router.post("/",createUser)
 
 // router.post(
 //   "/reset-password",

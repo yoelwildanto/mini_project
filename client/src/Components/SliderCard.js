@@ -1,9 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../CSS/CardSlider.css";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { Box } from "@chakra-ui/react";
 
 const ReactCardSlider = (props) => {
+  // const linkDetailEvent = `/event/${eventData.id}`;
   // const slideLeft = () => {
   //   var slider = document.getElementById("slider");
   //   slider.scrollLeft = slider.scrollLeft - 500;
@@ -25,6 +27,9 @@ const ReactCardSlider = (props) => {
         /> */}
         <div id="slider">
           {props.slides.map((slide, index) => {
+            const linkDetailEvent = `/event/${slide.id}`;
+            console.log("linkDetailEvent");
+            console.log(linkDetailEvent);
             return (
               <div className="slider-card" key={index}>
                 <div
@@ -32,10 +37,11 @@ const ReactCardSlider = (props) => {
                   style={{
                     backgroundImage: `url(${slide.image})`,
                     backgroundSize: "cover",
-                  }}
-                ></div>
+                  }}></div>
                 <div className="disc">
-                  <p className="slider-card-title">{slide.name}</p>
+                  <Link to={linkDetailEvent}>
+                    <p className="slider-card-title">{slide.name}</p>
+                  </Link>
                   <p className="slider-card-date">{slide.date}</p>
                   <p className="slider-card-price">{slide.ticketPrice}</p>
                 </div>

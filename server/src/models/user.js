@@ -15,13 +15,13 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    roleId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "Roles",
-        key: "id",
-      },
-    },
+    // roleId: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: "Roles",
+    //     key: "id",
+    //   },
+    // },
     status: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,

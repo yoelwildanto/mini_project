@@ -6,6 +6,7 @@ import Discover from "./Discover/Discover";
 import CreateEvent from "./page/Buat Event";
 import LoginPage from "./page/Auth/Login";
 import RegisterPage from "./page/Auth/Register";
+import DetailEvent from "./page/Events/Detail";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/create" element={<CreateEvent />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/event/:id" element={<DetailEvent />} />
       </Routes>
     </div>
   );
