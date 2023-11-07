@@ -14,6 +14,10 @@ const createEventQuery = async (
   time,
   eventStatus = true,
   description,
+  address,
+  hargatiket,
+  totaltiket,
+
   image
 ) => {
   try {
@@ -27,6 +31,9 @@ const createEventQuery = async (
       time,
       eventStatus,
       description,
+      address,
+      hargatiket,
+      totaltiket,
       image,
     });
 

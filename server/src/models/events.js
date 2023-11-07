@@ -30,6 +30,16 @@ module.exports = (sequelize, Sequelize) => {
       description: {
         type: Sequelize.TEXT,
       },
+      address: {
+        type: Sequelize.INTEGER,
+      },
+      hargatiket: {
+        type: Sequelize.INTEGER,
+      },
+      totaltiket: {
+        type: Sequelize.INTEGER,
+      },
+
       image: {
         type: Sequelize.STRING,
       },

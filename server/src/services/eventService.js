@@ -16,6 +16,9 @@ const createEventService = async (
   time,
   eventStatus,
   description,
+  address,
+  hargatiket,
+  totaltiket,
   image
 ) => {
   try {
@@ -29,6 +32,9 @@ const createEventService = async (
       time,
       eventStatus,
       description,
+      address,
+      hargatiket,
+      totaltiket,
       image
     );
     return res;
