@@ -39,6 +39,7 @@ module.exports = (sequelize, Sequelize) => {
       totaltiket: {
         type: Sequelize.INTEGER,
       },
+
       image: {
         type: Sequelize.STRING,
       },

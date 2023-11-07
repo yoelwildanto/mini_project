@@ -29,6 +29,7 @@ app.use("/event", eventRouter)
 const ticketRouter = require('./routes/ticketRouter');
 app.use("/ticket", ticketRouter);
 
+
 app.use("/uploads", express.static(path.join(__dirname, "./public/image")));
 
 

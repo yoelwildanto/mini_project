@@ -23,6 +23,7 @@ const createEventController = async (req, res) => {
       totaltiket,
     } = req.body;
     console.log(req.body);
+
     const result = await createEventService(
       eventName,
       categoryId,
@@ -37,6 +38,7 @@ const createEventController = async (req, res) => {
       hargatiket,
       totaltiket,
       req.file?.filename
+
     );
     return res.status(200).json({
       message: "success",
@@ -103,3 +105,4 @@ module.exports = {
   getEventsController,
   getBannerController,
 };
+

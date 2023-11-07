@@ -53,6 +53,7 @@ const SliderBanner = (props) => {
             return (
               <div key={index}>
                 <img src={`${process.env.REACT_APP_IMAGE_URL}/events/${a.image}`} alt="Slide 1" />
+
               </div>
             );
           })

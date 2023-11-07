@@ -7,15 +7,17 @@ import Discover from './Discover/Discover';
 import CreateEvent2 from './Components/formEvent';
 import { Discovery } from './Discover';
 
+
 function App() {
   return (
     <div className="App">
       <Navbar/>
       <Routes>
       <Route path='/' element={<LandingPage/>}/>
-      <Route path='/discovery' element={<Discover/>}/>
+//       <Route path='/discovery' element={<Discover/>}/>
       <Route path='/create' element={<CreateEvent2/>}/>
-      <Route path='/dis' element={<Discovery/>}/>
+      <Route path='/disovery' element={<Discovery/>}/>
+
       </Routes>
     </div>
   );
