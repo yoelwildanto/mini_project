@@ -15,7 +15,6 @@ function App() {
       <Route path='/' element={<LandingPage/>}/>
       <Route path='/discovery' element={<Discover/>}/>
       <Route path='/create' element={<CreateEvent2/>}/>
-      <Route path='1' element={<FormEvent/>}/>
       </Routes>
     </div>
   );
