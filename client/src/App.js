@@ -17,6 +17,7 @@ function App() {
       {/* <Route path='/discovery' element={<Discover/>}/> */}
       <Route path='/create' element={<CreateEvent2/>}/>
       <Route path='/discovery' element={<Discovery/>}/>
+
       </Routes>
     </div>
   );

@@ -15,6 +15,7 @@ export const DiscoveryCardEvent = (props) => {
         // `http://localhost:8080/event?categoryId=${props.categoryId}&cityId=${props.locationId}`
         `http://localhost:8080/event/list-all-event`
 
+
       );
       setEvent(response.data.data);
     } catch (err) {
@@ -72,6 +73,7 @@ export const DiscoveryCardEvent = (props) => {
                   </Box>
                   <Box fontWeight={700} color={"home.primary"}>
                     {data.hargatiket}
+
                   </Box>
                 </Box>
 
@@ -89,6 +91,7 @@ export const DiscoveryCardEvent = (props) => {
                     <Avatar src="https://bit.ly/broken-link" size={"sm"} />
                   )}
                   {/* <Box>{data.user.username}</Box> */}
+
                 </Box>
               </Flex>
             </Card>
