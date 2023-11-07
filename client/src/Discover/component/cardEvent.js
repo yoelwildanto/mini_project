@@ -68,7 +68,7 @@ export const DiscoveryCardEvent = (props) => {
                 <Box display={"flex"} flexDirection={"column"} gap={3}>
                   <Box>{data.eventName}</Box>
                   <Box>
-                    {data.startDate} - {data.endDate}
+                    {data.startDate}
                   </Box>
                   <Box fontWeight={700} color={"home.primary"}>
                     {data.hargatiket}

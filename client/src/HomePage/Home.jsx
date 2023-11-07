@@ -6,11 +6,11 @@ import Footer from "./Footer";
 import Axios from "axios";
 
 const LandingPage = () => {
-  // const sliderClick = (slider)=>{
-  //     alert("hello world");
-  //   }
+
   // const [data, setData] = useState([]);
   const [banner, setBanner] = useState([]);
+  const [event, setEvent] = useState([]);
+
 
   const data =[
     {
@@ -64,17 +64,7 @@ const LandingPage = () => {
   ]
 
  
-  // useEffect(() => {
-  //   Axios.get("http://localhost:3001/events")
-  //     .then((response) => {
-  //       setData(response.data);
-  //       // console.log(response.data)
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching data:", error);
-  //     });
-  // }, []);
-
+ 
   useEffect(() => {
     Axios.get("http://localhost:3002/banner")
       .then((response) => {
@@ -85,6 +75,19 @@ const LandingPage = () => {
         console.error("Error fetching data:", error);
       });
   }, []);
+
+  useEffect(() => {
+    Axios.get("http://localhost:3002/list-all-event")
+      .then((response) => {
+        setEvent(response.data);
+        console.log(response.data)
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
+
   return (
     <Box >
       {/* Slider Banner */}
@@ -103,7 +106,7 @@ const LandingPage = () => {
           {" "}
           Upcoming Event{" "}
         </Text>
-        <ReactCardSlider slides={data} />
+        <ReactCardSlider slides={event} />
       </Box>
       <Box borderRadius={"5px"} m={"80px 0px"} bg={"#032466"} p={"50px"}>
         <Text color={"white"} fontWeight={800} fontSize={"30px"}>
