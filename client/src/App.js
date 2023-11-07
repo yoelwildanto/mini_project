@@ -4,7 +4,6 @@ import LandingPage from "./HomePage/Home"
 import Navbar from './Components/Navbar';
 import Discover from './Discover/Discover';
 // import CreateEvent from './page/Buat Event';
-import FormEvent from './Components/formEvent';
 import CreateEvent2 from './Components/formEvent';
 
 function App() {
