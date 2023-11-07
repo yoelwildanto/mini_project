@@ -18,8 +18,11 @@ const createEventController = async (req, res) => {
       time,
       eventStatus,
       description,
+      address,
+      hargatiket,
+      totaltiket,
     } = req.body;
-    console.log(req.body)
+    console.log(req.body);
     const result = await createEventService(
       eventName,
       categoryId,
@@ -30,7 +33,10 @@ const createEventController = async (req, res) => {
       time,
       eventStatus,
       description,
-      req.file?.filename,
+      address,
+      hargatiket,
+      totaltiket,
+      req.file?.filename
     );
     return res.status(200).json({
       message: "success",
@@ -95,5 +101,5 @@ module.exports = {
   getCategoryController,
   getLocationController,
   getEventsController,
-  getBannerController
+  getBannerController,
 };

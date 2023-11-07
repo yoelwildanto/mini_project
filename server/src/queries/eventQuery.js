@@ -14,6 +14,9 @@ const createEventQuery = async (
   time,
   eventStatus = true,
   description,
+  address,
+  hargatiket,
+  totaltiket,
   image
 ) => {
   try {
@@ -27,6 +30,9 @@ const createEventQuery = async (
       time,
       eventStatus,
       description,
+      address,
+      hargatiket,
+      totaltiket,
       image,
     });
 
@@ -68,7 +74,6 @@ const getEventsQuery = async () => {
 
 const getBannerQuery = async () => {
   try {
-
     const res = await events.findAll({
       attributes: ["id", "image", "eventStatus"],
       where: {

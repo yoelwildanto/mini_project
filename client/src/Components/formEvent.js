@@ -23,6 +23,9 @@ const EventSchema = Yup.object().shape({
   startDate: Yup.string().required("Start date is required"),
   endDate: Yup.string().required("End date required"),
   description: Yup.string().required("Description is required"),
+  address: Yup.string().required("Address is required"),
+  hargatiket: Yup.number().required("Price is required"),
+  totaltiket: Yup.number().required("Ticket Quantity is required"),
   //   eventHighlight: Yup.string().required("Highlight is required"),
   //   eventInclude: Yup.string().required("Included is required"),
   // eventImage: Yup.string(),
@@ -69,7 +72,10 @@ const CreateEvent2 = () => {
     time,
     startDate,
     endDate,
-    description
+    description,
+    address,
+    hargatiket,
+    totaltiket
   ) => {
     try {
       let formData = new FormData();
@@ -81,7 +87,10 @@ const CreateEvent2 = () => {
       formData.append("endDate", endDate);
       formData.append("description", description);
       formData.append("image", fieldImage);
-      console.log(formData)
+      formData.append("address", address);
+      formData.append("hargatiket", hargatiket);
+      formData.append("totaltiket", totaltiket);
+      console.log(formData);
       await axios.post("http://localhost:8080/event/add-event", formData);
       alert("Create Event Success");
     } catch (err) {
@@ -98,6 +107,9 @@ const CreateEvent2 = () => {
       startDate: "",
       endDate: "",
       description: "",
+      address: "",
+      hargatiket: "",
+      totaltiket: "",
       eventImage: null,
     },
 
@@ -110,7 +122,10 @@ const CreateEvent2 = () => {
         values.time,
         values.startDate,
         values.endDate,
-        values.description
+        values.description,
+        values.address,
+        values.hargatiket,
+        values.totaltiket,
       );
     },
   });
@@ -210,9 +225,7 @@ const CreateEvent2 = () => {
             </FormControl>
 
             <FormControl
-              isInvalid={
-                formik.touched.locationId && formik.errors.locationId
-              }
+              isInvalid={formik.touched.locationId && formik.errors.locationId}
             >
               <FormLabel>City</FormLabel>
               <InputGroup>
@@ -237,14 +250,10 @@ const CreateEvent2 = () => {
                 </Select>
               </InputGroup>
               {formik.touched.locationId && formik.errors.locationId && (
-                <FormErrorMessage>
-                  {formik.errors.locationId}
-                </FormErrorMessage>
+                <FormErrorMessage>{formik.errors.locationId}</FormErrorMessage>
               )}
             </FormControl>
-            <FormControl
-              isInvalid={formik.touched.time && formik.errors.time}
-            >
+            <FormControl isInvalid={formik.touched.time && formik.errors.time}>
               <FormLabel>Time</FormLabel>
               <InputGroup>
                 <Input
@@ -265,9 +274,7 @@ const CreateEvent2 = () => {
             </FormControl>
             <Flex gap="1em">
               <FormControl
-                isInvalid={
-                  formik.touched.startDate && formik.errors.startDate
-                }
+                isInvalid={formik.touched.startDate && formik.errors.startDate}
               >
                 <FormLabel>Start Date</FormLabel>
                 <InputGroup>
@@ -282,17 +289,12 @@ const CreateEvent2 = () => {
                     onChange={formik.handleChange}
                   ></Input>
                 </InputGroup>
-                {formik.touched.startDate &&
-                  formik.errors.startDate && (
-                    <FormErrorMessage>
-                      {formik.errors.startDate}
-                    </FormErrorMessage>
-                  )}
+                {formik.touched.startDate && formik.errors.startDate && (
+                  <FormErrorMessage>{formik.errors.startDate}</FormErrorMessage>
+                )}
               </FormControl>
               <FormControl
-                isInvalid={
-                  formik.touched.endDate && formik.errors.endDate
-                }
+                isInvalid={formik.touched.endDate && formik.errors.endDate}
               >
                 <FormLabel>End Date</FormLabel>
                 <InputGroup>
@@ -307,20 +309,16 @@ const CreateEvent2 = () => {
                     onChange={formik.handleChange}
                   ></Input>
                 </InputGroup>
-                {formik.touched.endDate &&
-                  formik.errors.endDate && (
-                    <FormErrorMessage>
-                      {formik.errors.endDate}
-                    </FormErrorMessage>
-                  )}
+                {formik.touched.endDate && formik.errors.endDate && (
+                  <FormErrorMessage>{formik.errors.endDate}</FormErrorMessage>
+                )}
               </FormControl>
             </Flex>
           </Stack>
           <Stack w={{ base: "full", lg: "50%" }} justifyContent="space-between">
             <FormControl
               isInvalid={
-                formik.touched.description &&
-                formik.errors.description
+                formik.touched.description && formik.errors.description
               }
             >
               <FormLabel>Description</FormLabel>
@@ -337,49 +335,77 @@ const CreateEvent2 = () => {
                   onChange={formik.handleChange}
                 />
               </InputGroup>
-              {formik.touched.description &&
-                formik.errors.description && (
-                  <FormErrorMessage>
-                    {formik.errors.description}
-                  </FormErrorMessage>
-                )}
-                  <Button marginTop={"3em"} alignItems={"center"} type="submit">
-                Create Event
-              </Button>
-            </FormControl>
-
-            {/* <FormControl
-              isInvalid={
-                formik.touched.eventHighlight && formik.errors.eventHighlight
-              }
-            ></FormControl> */}
-            {/* <FormControl
-              isInvalid={
-                formik.touched.eventInclude && formik.errors.eventInclude
-              }
-            >
-              <FormLabel>What's Included</FormLabel>
-              <InputGroup>
-                <Textarea
-                  background="#585454"
-                  color="white"
-                  border="0"
-                  h="7em"
-                  placeholder="Type what's included here"
-                  name="eventInclude"
-                  value={formik.values.eventInclude}
-                  onChange={formik.handleChange}
-                />
-              </InputGroup>
-              {formik.touched.eventInclude && formik.errors.eventInclude && (
-                <FormErrorMessage>
-                  {formik.errors.eventInclude}
-                </FormErrorMessage>
+              {formik.touched.description && formik.errors.description && (
+                <FormErrorMessage>{formik.errors.description}</FormErrorMessage>
               )}
-              <Button alignItems={"center"} type="submit">
+            
+            </FormControl>
+            <FormControl
+              isInvalid={formik.touched.address && formik.errors.address}
+            >
+              <FormLabel>Address</FormLabel>
+              <InputGroup>
+                <Input
+                  background="#032466"
+                  color="white"
+                  border="4px solid red"
+                  _placeholder={{ color: "white" }}
+                  placeholder="Type event name here"
+                  type="text"
+                  name="address"
+                  value={formik.values.address}
+                  onChange={formik.handleChange}
+                ></Input>
+              </InputGroup>
+              {formik.touched.address && formik.errors.address && (
+                <FormErrorMessage>{formik.errors.address}</FormErrorMessage>
+              )}
+            </FormControl>
+            <FormControl
+              isInvalid={formik.touched.hargatiket && formik.errors.hargatiket}
+            >
+              <FormLabel>Ticket Price</FormLabel>
+              <InputGroup>
+                <Input
+                  background="#032466"
+                  color="white"
+                  border="4px solid red"
+                  _placeholder={{ color: "white" }}
+                  placeholder="Rp"
+                  type="number"
+                  name="hargatiket"
+                  value={formik.values.hargatiket}
+                  onChange={formik.handleChange}
+                ></Input>
+              </InputGroup>
+              {formik.touched.hargatiket && formik.errors.hargatiket && (
+                <FormErrorMessage>{formik.errors.hargatiket}</FormErrorMessage>
+              )}
+            </FormControl>
+            <FormControl
+              isInvalid={formik.touched.totaltiket && formik.errors.totaltiket}
+            >
+              <FormLabel>Total Ticket</FormLabel>
+              <InputGroup>
+                <Input
+                  background="#032466"
+                  color="white"
+                  border="4px solid red"
+                  _placeholder={{ color: "white" }}
+                  placeholder="Total Ticket"
+                  type="number"
+                  name="totaltiket"
+                  value={formik.values.totaltiket}
+                  onChange={formik.handleChange}
+                ></Input>
+              </InputGroup>
+              {formik.touched.totaltiket && formik.errors.totaltiket && (
+                <FormErrorMessage>{formik.errors.totaltiket}</FormErrorMessage>
+              )}
+            </FormControl>
+            <Button marginTop={"3em"} alignItems={"center"} type="submit">
                 Create Event
               </Button>
-            </FormControl> */}
           </Stack>
         </Flex>
       </form>
