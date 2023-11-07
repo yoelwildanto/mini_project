@@ -11,33 +11,31 @@ import {
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { register } from "../../Actions/auth";
 
 function Register() {
-  const navigate = useNavigate();
-  const register = async (email, username, password) => {
-    try {
-      const { data } = await axios.post("http://localhost:8080/auth/register", {
-        email,
-        username,
-        password,
-      });
-      alert(data?.message);
-      navigate("/login");
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  let dispatch = useDispatch();
+  let navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
       email: "",
-      username: "",
-      roles: "",
+      fullname: "",
       password: "",
+      roleId: "",
     },
     onSubmit: (values) => {
-      register(values.email, values.username, values.roles, values.password);
+      dispatch(
+        register(values.email, values.fullname, values.password, values.roleId)
+      )
+        .then(() => {
+          navigate("/");
+          window.location.reload();
+        })
+        .catch((e) => {
+          return e;
+        });
     },
   });
 
@@ -70,40 +68,40 @@ function Register() {
               <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
             )}
           </FormControl>
-          <FormLabel>Username: </FormLabel>
+          <FormLabel>Fullname: </FormLabel>
           <FormControl
-            isInvalid={formik.touched.username && formik.errors.username}
+            isInvalid={formik.touched.fullname && formik.errors.fullname}
             mb={5}>
             <InputGroup>
               <Input
                 size="lg"
                 type="text"
-                name="username"
-                placeholder="Your username"
-                value={formik.values.username}
+                name="fullname"
+                placeholder="Your Fullname"
+                value={formik.values.fullname}
                 onChange={formik.handleChange}
               />
             </InputGroup>
-            {formik.touched.username && formik.errors.username && (
-              <FormErrorMessage>{formik.errors.username}</FormErrorMessage>
+            {formik.touched.fullname && formik.errors.fullname && (
+              <FormErrorMessage>{formik.errors.fullname}</FormErrorMessage>
             )}
           </FormControl>
           <FormLabel>Roles: </FormLabel>
           <FormControl
-            isInvalid={formik.touched.roles && formik.errors.roles}
+            isInvalid={formik.touched.roleId && formik.errors.roleId}
             mb={5}>
             <Select
               size="lg"
               type="text"
-              name="roles"
-              placeholder="Your roles"
-              value={formik.values.roles}
+              name="roleId"
+              placeholder="Your Roles"
+              value={formik.values.roleId}
               onChange={formik.handleChange}>
-              <option>EO</option>
-              <option>User</option>
+              <option value="1">EO</option>
+              <option value="2">User</option>
             </Select>
-            {formik.touched.roles && formik.errors.roles && (
-              <FormErrorMessage>{formik.errors.roles}</FormErrorMessage>
+            {formik.touched.roleId && formik.errors.roleId && (
+              <FormErrorMessage>{formik.errors.roleId}</FormErrorMessage>
             )}
           </FormControl>
           <FormLabel>Password: </FormLabel>

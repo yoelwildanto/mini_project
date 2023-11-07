@@ -12,14 +12,14 @@ const LandingPage = () => {
   // const [data, setData] = useState([]);
   const [banner, setBanner] = useState([]);
 
-  const data =[
+  const data = [
     {
       id: 1,
       name: "Event 1",
       date: "2023-11-15",
       ticketPrice: "$25",
       description: "Company A",
-      image: "../Asset/e.jpg"
+      image: "../Asset/e.jpg",
     },
     {
       id: 2,
@@ -27,7 +27,7 @@ const LandingPage = () => {
       date: "2023-12-10",
       ticketPrice: "$30",
       description: "Company B",
-      image: "../Asset/b.jpg"
+      image: "../Asset/b.jpg",
     },
     {
       id: 3,
@@ -35,7 +35,7 @@ const LandingPage = () => {
       date: "2023-12-20",
       ticketPrice: "$20",
       description: "Company C",
-      image: "../Asset/c.jpg"
+      image: "../Asset/c.jpg",
     },
     {
       id: 4,
@@ -43,7 +43,7 @@ const LandingPage = () => {
       date: "2023-12-25",
       ticketPrice: "$40",
       description: "Company D",
-      image: "../Asset/d.jpg"
+      image: "../Asset/d.jpg",
     },
     {
       id: 5,
@@ -51,7 +51,7 @@ const LandingPage = () => {
       date: "2023-12-30",
       ticketPrice: "$35",
       description: "Company E",
-      image: "../Asset/e.jpg"
+      image: "../Asset/e.jpg",
     },
     {
       id: 6,
@@ -59,16 +59,14 @@ const LandingPage = () => {
       date: "2024-01-05",
       ticketPrice: "$28",
       description: "Company F",
-      image: "../Asset/f.jpg"
-    }
-  ]
+      image: "../Asset/f.jpg",
+    },
+  ];
 
- 
   // useEffect(() => {
   //   Axios.get("http://localhost:3001/events")
   //     .then((response) => {
   //       setData(response.data);
-  //       // console.log(response.data)
   //     })
   //     .catch((error) => {
   //       console.error("Error fetching data:", error);
@@ -79,14 +77,13 @@ const LandingPage = () => {
     Axios.get("http://localhost:3002/banner")
       .then((response) => {
         setBanner(response.data);
-        // console.log(response.data)
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
   }, []);
   return (
-    <Box >
+    <Box>
       {/* Slider Banner */}
       <SliderBanner banners={banner} />
 
@@ -98,8 +95,7 @@ const LandingPage = () => {
           display={"flex"}
           color={"black"}
           fontWeight={800}
-          fontSize={"20px"}
-        >
+          fontSize={"20px"}>
           {" "}
           Upcoming Event{" "}
         </Text>
@@ -119,8 +115,7 @@ const LandingPage = () => {
           display={"flex"}
           color={"black"}
           fontWeight={800}
-          fontSize={"20px"}
-        >
+          fontSize={"20px"}>
           {" "}
           Konser{" "}
         </Text>

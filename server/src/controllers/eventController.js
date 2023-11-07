@@ -27,7 +27,6 @@ const createEventController = async (req, res) => {
       price,
       eventDescription,
     } = req.body;
-    console.log(req.body);
     // const { id } = req.user;
     const result = await createEventService(
       eventName,

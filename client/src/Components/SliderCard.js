@@ -28,8 +28,6 @@ const ReactCardSlider = (props) => {
         <div id="slider">
           {props.slides.map((slide, index) => {
             const linkDetailEvent = `/event/${slide.id}`;
-            console.log("linkDetailEvent");
-            console.log(linkDetailEvent);
             return (
               <div className="slider-card" key={index}>
                 <div

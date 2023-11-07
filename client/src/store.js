@@ -1,23 +1,23 @@
-import { createStore, applyMiddleware } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import thunk from "redux-thunk";
-import rootReducer from "./Reducers";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+// import authReducer from "./reducers/auth";
+import mainReducer from "./Reducers";
 
-const middleware = [thunk];
+const rootReducer = combineReducers({
+  // auth: authReducer,
+  mainReducer,
+});
 
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(...middleware))
-);
+const preloadedState = localStorage.getItem("reduxState")
+  ? JSON.parse(localStorage.getItem("reduxState"))
+  : {};
+
+const store = configureStore({
+  reducer: rootReducer,
+  preloadedState,
+});
+
+store.subscribe(() => {
+  localStorage.setItem("reduxState", JSON.stringify(store.getState()));
+});
 
 export default store;
-
-// import { configureStore } from "@reduxjs/toolkit";
-
-// export const store = configureStore({
-//   reducer: {
-//     quantity: quantityReducer,
-//     card: cardReducer,
-//     AuthReducer: AuthReducer,
-//   },
-// });

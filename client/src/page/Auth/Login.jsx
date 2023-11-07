@@ -10,8 +10,8 @@ import {
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import React, { useState, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { login } from "../../Actions/auth";
 
 function Login() {
@@ -26,12 +26,11 @@ function Login() {
     onSubmit: async (values) => {
       dispatch(login(values.email, values.password))
         .then(() => {
-          console.log("berhasil");
           navigate("/");
           window.location.reload();
         })
         .catch((e) => {
-          console.log(e);
+          return e;
         });
     },
   });

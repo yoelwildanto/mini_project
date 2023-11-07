@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const {
   login,
-  createUser,
+  register,
   resetPassword,
   handleResetPassword,
   getUserData,
@@ -14,7 +14,7 @@ const {
 // const authenticateToken = require("../middleware/authenticateToken");
 
 router.post("/login", login);
-router.post("/",createUser)
+router.post("/register", register);
 
 // router.post(
 //   "/reset-password",

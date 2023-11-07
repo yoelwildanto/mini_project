@@ -21,7 +21,6 @@ const SliderBanner = (props) => {
     //   centerMode:true
     //   swipeToSilde: true,
   };
-  // console.log(props.banners)
 
   const BANNER = [
     {
@@ -54,7 +53,6 @@ const SliderBanner = (props) => {
       image: "../Asset/g.jpg",
     },
   ];
-  console.log(BANNER);
 
   return (
     <div className="slider-banner">
@@ -62,7 +60,6 @@ const SliderBanner = (props) => {
         {
           // props.banners.map((a,index)=>{
           BANNER.map((a, index) => {
-            // console.log(a.image)
             return (
               <div key={index}>
                 {/* <img src={require(`${a.image}`)} alt="Slide 1" /> */}

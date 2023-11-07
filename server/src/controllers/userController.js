@@ -29,7 +29,7 @@ exports.login = async function (req, res) {
 
 // reset password
 
-exports.createUser = async (req, res) => {
+exports.register = async (req, res) => {
   try {
     const existingUser = await User.findOne({
       where: { email: req.body.email },
@@ -37,25 +37,21 @@ exports.createUser = async (req, res) => {
     if (existingUser) {
       return res.status(400).json({ message: "Email already used" });
     }
-    if (req.body.password !== req.body.confirmPassword) {
-      return res
-        .status(400)
-        .json({ message: "Password and confirm password must be the same" });
-    }
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    // const referralCode = jwt.sign(
-    //   { fullname: req.body.fullname, email: req.body.email },
-    //   process.env.JWT_SECRET_KEY
-    // );
+    const referralCode = jwt.sign(
+      { fullname: req.body.fullname, email: req.body.email },
+      process.env.JWT_SECRET_KEY
+    );
+
     const newUser = await User.create({
       fullname: req.body.fullname,
       email: req.body.email,
       password: hashedPassword,
-      // address: req.body.address,
-      // referralCode: referralCode,
-      roleId: 2,
+      roleId: req.body.roleId,
+      address: req.body.address,
+      referralCode: referralCode,
       point: 0,
-      isVerified: true,
+      status: true,
     });
 
     res.status(201).json(newUser);
