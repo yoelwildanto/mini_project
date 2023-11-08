@@ -28,6 +28,14 @@ const ReactCardSlider = (props) => {
         <div id="slider">
           {props.slides.map((slide, index) => {
             const linkDetailEvent = `/event/${slide.id}`;
+            const dateFormat = new Intl.DateTimeFormat("en-US", {
+              year: "numeric",
+              month: "2-digit",
+              day: "2-digit",
+              hour: "2-digit",
+              minute: "2-digit",
+              second: "2-digit",
+            }).format(new Date(slide.event_date));
             return (
               <Link to={linkDetailEvent}>
                 <div className="slider-card" key={index}>
@@ -39,7 +47,7 @@ const ReactCardSlider = (props) => {
                     }}></div>
                   <div className="disc">
                     <p className="slider-card-title">{slide.title}</p>
-                    <p className="slider-card-date">{slide.event_date}</p>
+                    <p className="slider-card-date">{dateFormat}</p>
                     <p className="slider-card-price">$.{slide.price}</p>
                   </div>
                   <hr></hr>
