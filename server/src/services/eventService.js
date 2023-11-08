@@ -4,6 +4,7 @@ const {
   getLocationQuery,
   getEventsQuery,
   getBannerQuery,
+  eventDetailQuery
 } = require("../queries/eventQuery");
 
 const createEventService = async (
@@ -70,6 +71,15 @@ const getEventsService = async () => {
   }
 };
 
+const eventDetailService = async (id) => {
+	try {
+		const res = eventDetailQuery(id);
+		return res;
+	} catch (err) {
+		throw err;
+	}
+};
+
 const getBannerService = async () => {
   try {
     const res = await getBannerQuery();
@@ -85,4 +95,5 @@ module.exports = {
   getLocationService,
   getEventsService,
   getBannerService,
+  eventDetailService
 };

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import {
   Box,
   Link,
@@ -17,7 +16,9 @@ export default function KategoriDropBar({ setDataCategory }) {
 
   const dataCategory = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/event/category-list");
+      const response = await axios.get(
+        "http://localhost:8080/event/category-list"
+      );
 
       setCategory(response.data.data);
     } catch (err) {

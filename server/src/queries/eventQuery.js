@@ -73,6 +73,20 @@ const getEventsQuery = async () => {
   }
 };
 
+const eventDetailQuery = async (id) =>{
+  try {
+    const res = await events.findByPk(id, 
+    //   {
+    //   include : [user]
+    // }
+    )
+
+    return res
+  } catch (err) {
+    throw err
+  }
+}
+
 const getBannerQuery = async () => {
   try {
 
@@ -97,4 +111,5 @@ module.exports = {
   getLocationQuery,
   getEventsQuery,
   getBannerQuery,
+  eventDetailQuery
 };
