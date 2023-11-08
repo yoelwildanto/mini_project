@@ -2,6 +2,7 @@ const {
   createEventService,
   findEventsService,
 } = require("../services/eventService");
+const { Event } = require("../models");
 
 const findEventsController = async (req, res) => {
   try {
@@ -47,7 +48,31 @@ const createEventController = async (req, res) => {
   }
 };
 
+const getAllEvents = async (req, res) => {
+  try {
+    const Events = await Event.findAll();
+    res.status(200).json(Events);
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const getEventById = async (req, res) => {
+  try {
+    const event = await Event.findByPk(req.params.id);
+    if (event) {
+      res.status(200).json(event);
+    } else {
+      res.status(404).json({ message: "Event not found" });
+    }
+  } catch (error) {
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
 module.exports = {
   createEventController,
   findEventsController,
+  getAllEvents,
+  getEventById,
 };

@@ -2,7 +2,7 @@ const bodyParser = require("body-parser");
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
-const { userRoute } = require("./routes");
+const { userRoute, eventRoute } = require("./routes");
 require("dotenv").config({
   path: path.resolve(__dirname, "../.env"),
 });
@@ -25,6 +25,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use("/api/auth", userRoute);
+app.use("/api", eventRoute);
 
 app.listen(PORT, (req, res) => {
   console.log(`server listening on port ${PORT}`);

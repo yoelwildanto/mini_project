@@ -29,23 +29,23 @@ const ReactCardSlider = (props) => {
           {props.slides.map((slide, index) => {
             const linkDetailEvent = `/event/${slide.id}`;
             return (
-              <div className="slider-card" key={index}>
-                <div
-                  className="slider-card-image"
-                  style={{
-                    backgroundImage: `url(${slide.image})`,
-                    backgroundSize: "cover",
-                  }}></div>
-                <div className="disc">
-                  <Link to={linkDetailEvent}>
-                    <p className="slider-card-title">{slide.name}</p>
-                  </Link>
-                  <p className="slider-card-date">{slide.date}</p>
-                  <p className="slider-card-price">{slide.ticketPrice}</p>
+              <Link to={linkDetailEvent}>
+                <div className="slider-card" key={index}>
+                  <div
+                    className="slider-card-image"
+                    style={{
+                      backgroundImage: `url(${slide.image})`,
+                      backgroundSize: "cover",
+                    }}></div>
+                  <div className="disc">
+                    <p className="slider-card-title">{slide.title}</p>
+                    <p className="slider-card-date">{slide.event_date}</p>
+                    <p className="slider-card-price">$.{slide.price}</p>
+                  </div>
+                  <hr></hr>
+                  <p className="slider-card-description">{slide.description}</p>
                 </div>
-                <hr></hr>
-                <p className="slider-card-description">{slide.description}</p>
-              </div>
+              </Link>
             );
           })}
         </div>
