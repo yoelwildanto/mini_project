@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "../CSS/CardSlider.css";
-// import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import { FormatRupiah } from "@arismun/format-rupiah";
 import { Box } from "@chakra-ui/react";
 
 const ReactCardSlider = (props) => {
-
   const [eventImage, setEventImage] = useState([]);
+  const navigate = useNavigate();
+
 
   const fetchEventImage = async () => {
     try {
@@ -27,41 +29,41 @@ const ReactCardSlider = (props) => {
 
   return (
     <Box>
-      {/* <Text fontWeight={700} fontSize={"25px"} m={"10px 25px"} display={"flex"}>Upcoming Event</Text> */}
       <div id="main-slider-container">
-        {/* <MdChevronLeft
-          size={40}
-          className="slider-icon left"
-          onClick={slideLeft}
-        /> */}
         <div id="slider">
           {eventImage.map((slide, index) => {
-            console.log(eventImage)
+            console.log(eventImage);
+
             return (
-              <div className="slider-card" key={index}>
-                <div
+              <div
+                className="slider-card"
+                key={index}
+                onClick={() => navigate(`/event/${slide.id}`)}
+              >
+                <img
+                  src={`${process.env.REACT_APP_IMAGE_URL}/events/${slide.image}`}
                   className="slider-card-image"
                   style={{
-                    backgroundImage: `url(${process.env.REACT_APP_IMAGE_URL}/events/${slide.image})`,
+                    src: `url(${process.env.REACT_APP_IMAGE_URL}/events/${slide.image})`,
+
                     backgroundSize: "cover",
                   }}
-                ></div>
+                ></img>
                 <div className="disc">
                   <p className="slider-card-title">{slide.eventName}</p>
-                  <p className="slider-card-date">{slide.startDate}</p>
-                  <p className="slider-card-price">{slide.hargatiket}</p>
+                  <p className="slider-card-date">
+                    {new Date(slide?.startDate).toDateString()}
+                  </p>
+                  <p className="slider-card-price">
+                    <FormatRupiah value={slide.hargatiket} />
+                  </p>
                 </div>
                 <hr></hr>
-                {/* <p className="slider-card-description">{slide.description}</p> */}
+
               </div>
             );
           })}
         </div>
-        {/* <MdChevronRight
-          size={40}
-          className="slider-icon right"
-          onClick={slideRight}
-        /> */}
       </div>
     </Box>
   );

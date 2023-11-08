@@ -6,65 +6,10 @@ import Footer from "./Footer";
 import Axios from "axios";
 
 const LandingPage = () => {
-
-  // const [data, setData] = useState([]);
   const [banner, setBanner] = useState([]);
   const [event, setEvent] = useState([]);
 
 
-  const data =[
-    {
-      id: 1,
-      name: "Event 1",
-      date: "2023-11-15",
-      ticketPrice: "$25",
-      description: "Company A",
-      image: "../Asset/e.jpg"
-    },
-    {
-      id: 2,
-      name: "Event 2",
-      date: "2023-12-10",
-      ticketPrice: "$30",
-      description: "Company B",
-      image: "../Asset/b.jpg"
-    },
-    {
-      id: 3,
-      name: "Event 3",
-      date: "2023-12-20",
-      ticketPrice: "$20",
-      description: "Company C",
-      image: "../Asset/c.jpg"
-    },
-    {
-      id: 4,
-      name: "Event 4",
-      date: "2023-12-25",
-      ticketPrice: "$40",
-      description: "Company D",
-      image: "../Asset/d.jpg"
-    },
-    {
-      id: 5,
-      name: "Event 5",
-      date: "2023-12-30",
-      ticketPrice: "$35",
-      description: "Company E",
-      image: "../Asset/e.jpg"
-    },
-    {
-      id: 6,
-      name: "Event 6",
-      date: "2024-01-05",
-      ticketPrice: "$28",
-      description: "Company F",
-      image: "../Asset/f.jpg"
-    }
-  ]
-
- 
- 
   useEffect(() => {
     Axios.get("http://localhost:3002/banner")
       .then((response) => {
@@ -80,7 +25,8 @@ const LandingPage = () => {
     Axios.get("http://localhost:3002/list-all-event")
       .then((response) => {
         setEvent(response.data);
-        console.log(response.data)
+        console.log(response.data);
+
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -89,7 +35,7 @@ const LandingPage = () => {
 
 
   return (
-    <Box >
+    <Box>
       {/* Slider Banner */}
       <SliderBanner banners={banner} />
 
@@ -129,12 +75,6 @@ const LandingPage = () => {
         </Text>
         <ReactCardSlider slides={data} />
       </Box>
-
-      {/* List of Top 3 Bestsellers */}
-      {/* <TopBestsellers /> */}
-
-      {/* Discover Button */}
-      {/* <DiscoverButton /> */}
 
       {/* Footer */}
       <Footer />

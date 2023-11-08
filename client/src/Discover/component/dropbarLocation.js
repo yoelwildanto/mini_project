@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import {
   Box,
   // Button,
@@ -18,7 +17,7 @@ import { useEffect } from "react";
 
 export default function LokasiDropBar({ setDataLocation }) {
   const [location, setLocation] = useState();
-//   const [city, setCity] = useState("");
+  //   const [city, setCity] = useState("");
 
   const dataLocation = async () => {
     try {

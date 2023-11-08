@@ -1,20 +1,20 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable react/prop-types */
 import { Image, Flex, Card, Spacer, Box, Grid } from "@chakra-ui/react";
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Avatar } from "@chakra-ui/react";
+import { FormatRupiah } from "@arismun/format-rupiah";
 
 export const DiscoveryCardEvent = (props) => {
   const [event, setEvent] = useState([]);
+  const navigate = useNavigate();
 
   const dataEvent = async () => {
     try {
       const response = await axios.get(
         // `http://localhost:8080/event?categoryId=${props.categoryId}&cityId=${props.locationId}`
         `http://localhost:8080/event/list-all-event`
-
 
       );
       setEvent(response.data.data);
@@ -43,6 +43,7 @@ export const DiscoveryCardEvent = (props) => {
           return (
             <Card
               key={index}
+              onClick={() => navigate(`/event/${data.id}`)}
               p={"0px 0px 10px 0px"}
               gap={2}
               fontSize={"14px"}
@@ -68,11 +69,9 @@ export const DiscoveryCardEvent = (props) => {
               <Flex direction={"column"} h={"full"} p={"0px 15px 10px 15px"}>
                 <Box display={"flex"} flexDirection={"column"} gap={3}>
                   <Box>{data.eventName}</Box>
-                  <Box>
-                    {data.startDate}
-                  </Box>
+                  <Box>{new Date(data?.startDate).toDateString()}</Box>
                   <Box fontWeight={700} color={"home.primary"}>
-                    {data.hargatiket}
+                    <FormatRupiah value={data.hargatiket} />
 
                   </Box>
                 </Box>

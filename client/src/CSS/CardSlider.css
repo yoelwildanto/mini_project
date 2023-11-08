@@ -32,7 +32,8 @@
 
 
 .slider-card-title{
-    margin: 5px 0px 5px 20px;
+    margin: 5px 0px 5px 5px;
+    font-size: 12px;
 }
 
 .slider-card-title{
@@ -51,6 +52,8 @@
     background-color: rgb(240 240 240 / 80%);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    object-fit:contain;
+
 }
 
 .slider-icon.left, .slider-icon.right {

@@ -1,22 +1,21 @@
-import './App.css';
-import { Routes,Route } from 'react-router-dom';
-import LandingPage from "./HomePage/Home"
-import Navbar from './Components/Navbar';
-import Discover from './Discover/Discover';
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import LandingPage from "./HomePage/Home";
+import Navbar from "./Components/Navbar";
+import { DetailEvent } from "./page/EventDetail";
 // import CreateEvent from './page/Buat Event';
-import CreateEvent2 from './Components/formEvent';
-import { Discovery } from './Discover';
-
+import CreateEvent2 from "./Components/formEvent";
+import { Discovery } from "./Discover";
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
+      <Navbar />
       <Routes>
-      <Route path='/' element={<LandingPage/>}/>
-      {/* <Route path='/discovery' element={<Discover/>}/> */}
-      <Route path='/create' element={<CreateEvent2/>}/>
-      <Route path='/discovery' element={<Discovery/>}/>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/event/:id" element={<DetailEvent />} />
+        <Route path="/create" element={<CreateEvent2 />} />
+        <Route path="/discovery" element={<Discovery />} />
 
       </Routes>
     </div>
