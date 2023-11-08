@@ -8,6 +8,15 @@ import { Box } from "@chakra-ui/react";
 const ReactCardSlider = (props) => {
   const [eventImage, setEventImage] = useState([]);
   const navigate = useNavigate();
+  const linkDetailEvent = `/event/${slide.id}`;
+  const dateFormat = new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  }).format(new Date(slide.event_date));
 
 
   const fetchEventImage = async () => {
@@ -66,6 +75,6 @@ const ReactCardSlider = (props) => {
         </div>
       </div>
     </Box>
-  );
+  )
 };
 export default ReactCardSlider;

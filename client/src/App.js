@@ -6,11 +6,14 @@ import { DetailEvent } from "./page/EventDetail";
 import CreateEvent2 from "./Components/formEvent";
 import { Discovery } from "./Discover";
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Ordersummary from './pages/ordersummary';
 import Transaction from './pages/transaction';
 import AfterPayment from './pages/afterpayment';
 import UploadImage from './pages/upload';
+import LoginPage from "./page/Auth/Login";
+import RegisterPage from "./page/Auth/Register";
+import DetailEvent from "./page/Events/Detail";
+import Transaction from "./page/Transactions/TransactionDetail";
 
 function App() {
   return (
@@ -25,10 +28,12 @@ function App() {
         <Route path="/transaction" element={<Transaction/>} />
         <Route path="/upload" element={<UploadImage/>} />
         <Route path="/discovery" element={<Discovery />} />
-
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        {/* <Route path="/event/:state" element={<DetailEvent />} />
+        <Route path="/transaction/:state" element={<Transaction />} /> */}
       </Routes>
-    </div>
-
+    </div>  
   );
 }
 

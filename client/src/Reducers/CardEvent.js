@@ -10,13 +10,11 @@ export const cardSlice = createSlice({
   reducers: {
     add(state, action) {
       const newItems = action.payload;
-      state.id = newItems
-    //   localStorage.setItem("add", state.id)
+      state.id = newItems;
+      //   localStorage.setItem("add", state.id)
     },
   },
 });
-
-
 
 export const { add } = cardSlice.actions;
 

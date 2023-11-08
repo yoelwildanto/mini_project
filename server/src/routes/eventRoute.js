@@ -7,7 +7,10 @@ const {
   getCategoryController,
   getLocationController,
   getBannerController,
-  eventDetailController
+  eventDetailController,
+  getAllEvents,
+  getEventById,
+  findEventsController
 } = require("../controllers/eventController");
 
 router.get("/category-list", getCategoryController);
@@ -16,5 +19,10 @@ router.post("/add-event", uploadEventFile, createEventController);
 router.get("/list-all-event", getEventsController);
 router.get("/detail-event/:id", eventDetailController);
 router.get("/Banner", getBannerController);
+router.get("/event", getAllEvents);
+router.get("/event/:id", getEventById);
+router.get("/", findEventsController);
+
 
 module.exports = router;
+

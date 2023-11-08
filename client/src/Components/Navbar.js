@@ -1,19 +1,31 @@
 import React from "react";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate, Link } from "react-router-dom";
 import { HiMiniCalendarDays } from "react-icons/hi2";
 import { IoMdCompass } from "react-icons/io";
 import { Box, Button, Input } from "@chakra-ui/react";
 import { FaMagnifyingGlass } from "react-icons/fa6";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../Actions/auth";
 import "../CSS/Navbar.css";
 
 const Navbar = () => {
-
   const Navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const isLoggedIn = useSelector((state) => {
+    return state.mainReducer.auth.isLoggedIn;
+  });
+
   const handleToCreate = () => {
-    Navigate('/create');
+    Navigate("/create");
   };
+
   const handleToDiscover = () => {
-    Navigate('/discovery');
+    Navigate("/discovery");
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
   };
 
   return (
@@ -62,30 +74,42 @@ const Navbar = () => {
             _hover={"transparent"}
             bg={"none"}
             onClick={handleToDiscover}
-            leftIcon={<IoMdCompass size={"25px"} color={"white"} 
-            />}
-          >
+            leftIcon={<IoMdCompass size={"25px"} color={"white"} />}>
             Discovery
           </Button>
           <li className="auth-navbar-button-container">
-            <div className="nav-auth-button">
-              <Button
-                color={"white"}
-                border={"2px solid white"}
-                variant={"outline"}
-                mr={"10px"}
-                _hover={{ color: "black", bg: "white" }}
-              >
-                Daftar
-              </Button>
-              <Button
-                color={"white"}
-                bg={"red"}
-                _hover={{ color: "black", bg: "white" }}
-              >
-                Masuk
-              </Button>
-            </div>
+            {isLoggedIn ? (
+              <div className="nav-auth-button">
+                <Button
+                  onClick={handleLogout}
+                  color={"white"}
+                  bg={"red"}
+                  _hover={{ color: "black", bg: "white" }}>
+                  Keluar
+                </Button>
+              </div>
+            ) : (
+              <div className="nav-auth-button">
+                <Link to="/register">
+                  <Button
+                    color={"white"}
+                    border={"2px solid white"}
+                    variant={"outline"}
+                    mr={"10px"}
+                    _hover={{ color: "black", bg: "white" }}>
+                    Daftar
+                  </Button>
+                </Link>
+                <Link to="/login">
+                  <Button
+                    color={"white"}
+                    bg={"red"}
+                    _hover={{ color: "black", bg: "white" }}>
+                    Masuk
+                  </Button>
+                </Link>
+              </div>
+            )}
           </li>
         </ul>
       </div>

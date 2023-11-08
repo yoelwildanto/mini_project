@@ -1,0 +1,11 @@
+.container-detail {
+  margin: 50px auto;
+  width: 90%;
+}
+
+.grid-custom {
+  display: grid;
+  grid-template-columns: auto 205px;
+  column-gap: 10px;
+  row-gap: 15px;
+}

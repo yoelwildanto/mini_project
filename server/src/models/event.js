@@ -1,10 +1,8 @@
 // models/Event.js
 const bcrypt = require("bcrypt");
 
-////SESUAIKAN DENGAN DB (BUAT MIGRATION DAN SEEDER DULU)
-
 module.exports = (sequelize, DataTypes) => {
-  const Transaction = sequelize.define("Transaction", {
+  const Event = sequelize.define("Event", {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -46,5 +44,5 @@ module.exports = (sequelize, DataTypes) => {
   //   Event.belongsTo(models.Category, { foreignKey: "category_id" });
   // };
 
-  return Transaction;
+  return Event;
 };
