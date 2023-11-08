@@ -41,7 +41,7 @@ const theme = extendTheme({
   },
 });
 
-function Transaction() {
+function Transaction2() {
   const [paymentStatus, setPaymentStatus] = useState(null);
   const [paymentProof, setPaymentProof] = useState(null); 
 
@@ -96,5 +96,5 @@ function Transaction() {
   );
 }
 
-export default Transaction;
+export default Transaction2;
 

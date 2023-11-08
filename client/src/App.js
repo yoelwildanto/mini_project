@@ -7,12 +7,11 @@ import CreateEvent2 from "./Components/formEvent";
 import { Discovery } from "./Discover";
 import './App.css';
 import Ordersummary from './pages/ordersummary';
-import Transaction from './pages/transaction';
+import Transaction2 from './pages/transaction';
 import AfterPayment from './pages/afterpayment';
 import UploadImage from './pages/upload';
 import LoginPage from "./page/Auth/Login";
 import RegisterPage from "./page/Auth/Register";
-import DetailEvent from "./page/Events/Detail";
 import Transaction from "./page/Transactions/TransactionDetail";
 
 function App() {
@@ -25,7 +24,7 @@ function App() {
         <Route path="/e-ticket" element={<AfterPayment/>} />
         <Route path="/event/:id" element={<DetailEvent />} />
         <Route path="/create" element={<CreateEvent2 />} />
-        <Route path="/transaction" element={<Transaction/>} />
+        {/* <Route path="/transaction" element={<Transaction/>} /> */}
         <Route path="/upload" element={<UploadImage/>} />
         <Route path="/discovery" element={<Discovery />} />
         <Route path="/login" element={<LoginPage />} />
