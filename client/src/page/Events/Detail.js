@@ -1,33 +1,28 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
-import {
-  Box,
-  Image,
-  Grid,
-  GridItem,
-  useDisclosure,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  Button,
-} from "@chakra-ui/react";
+import { useParams, Link } from "react-router-dom";
+import { Box, Image, Text, Button, Flex, Center } from "@chakra-ui/react";
 import "../../CSS/DetailEvent.css";
 
 function Detail() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const { state } = useParams();
   const [event, setEvent] = useState([]);
+  const [dateFormat, setDateFormat] = useState([]);
 
   const getEvent = async () => {
     try {
       const GET_EVENT = "http://localhost:8080/api/event/" + state;
       const response = await axios.get(GET_EVENT);
       setEvent(response.data);
+      const format = new Intl.DateTimeFormat("en-US", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      }).format(new Date(response.data.event_date));
+      setDateFormat(format);
     } catch (error) {
       return error;
     }
@@ -39,42 +34,35 @@ function Detail() {
 
   return (
     <div className="container-detail">
-      <Box boxSize="m">
+      <Box boxSize="m" marginBottom="30px">
         <Image w="100%" src={event.image} />
       </Box>
-      <Grid templateColumns="repeat(2, 1fr)" gap={6}>
-        <GridItem w="100%">
-          <div style={{ textAlign: "left" }}>
-            <h2>{event.name}</h2>
-            <small>{event.date}</small>
-            <p>{event.description}</p>
-          </div>
-        </GridItem>
-        <GridItem w="100%">
-          <div>
-            <h1>{event.ticketPrice}</h1>
-            <button onClick={onOpen}>Buy Ticket</button>
-            <Modal isOpen={isOpen} onClose={onClose}>
-              <ModalOverlay />
-              <ModalContent>
-                <ModalHeader>Modal Title</ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  posuere
-                </ModalBody>
-
-                <ModalFooter>
-                  <Button colorScheme="blue" mr={3} onClick={onClose}>
-                    Close
-                  </Button>
-                  <Button variant="ghost">Submit</Button>
-                </ModalFooter>
-              </ModalContent>
-            </Modal>
-          </div>
-        </GridItem>
-      </Grid>
+      <div className="grid-custom">
+        <div style={{ textAlign: "left" }}>
+          <Text fontSize="3xl">{event.title}</Text>
+          <small>{dateFormat}</small>
+          <br />
+          <br />
+        </div>
+        <div>
+          <Flex alignItems="center">
+            <Center w="100px">
+              <Text fontSize="2xl">$.{event.price}</Text>
+            </Center>
+            <Box w="auto">
+              <Link to={`/transaction/${event.id}`}>
+                <Button
+                  color={"white"}
+                  bg={"red"}
+                  _hover={{ color: "black", bg: "grey" }}>
+                  Buy Ticket
+                </Button>
+              </Link>
+            </Box>
+          </Flex>
+        </div>
+      </div>
+      <p>{event.description}</p>
     </div>
   );
 }

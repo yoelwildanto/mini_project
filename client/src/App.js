@@ -7,6 +7,7 @@ import CreateEvent from "./page/Buat Event";
 import LoginPage from "./page/Auth/Login";
 import RegisterPage from "./page/Auth/Register";
 import DetailEvent from "./page/Events/Detail";
+import Transaction from "./page/Transactions/TransactionDetail";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/event/:state" element={<DetailEvent />} />
+        <Route path="/transaction/:state" element={<Transaction />} />
       </Routes>
     </div>
   );
