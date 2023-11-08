@@ -9,6 +9,7 @@ const ReactCardSlider = (props) => {
   const [eventImage, setEventImage] = useState([]);
   const navigate = useNavigate();
 
+
   const fetchEventImage = async () => {
     try {
       const response = await axios.get(
@@ -32,6 +33,7 @@ const ReactCardSlider = (props) => {
         <div id="slider">
           {eventImage.map((slide, index) => {
             console.log(eventImage);
+
             return (
               <div
                 className="slider-card"
@@ -43,6 +45,7 @@ const ReactCardSlider = (props) => {
                   className="slider-card-image"
                   style={{
                     src: `url(${process.env.REACT_APP_IMAGE_URL}/events/${slide.image})`,
+
                     backgroundSize: "cover",
                   }}
                 ></img>
@@ -56,6 +59,7 @@ const ReactCardSlider = (props) => {
                   </p>
                 </div>
                 <hr></hr>
+
               </div>
             );
           })}

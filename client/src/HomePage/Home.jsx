@@ -9,6 +9,7 @@ const LandingPage = () => {
   const [banner, setBanner] = useState([]);
   const [event, setEvent] = useState([]);
 
+
   useEffect(() => {
     Axios.get("http://localhost:3002/banner")
       .then((response) => {
@@ -25,11 +26,13 @@ const LandingPage = () => {
       .then((response) => {
         setEvent(response.data);
         console.log(response.data);
+
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
   }, []);
+
 
   return (
     <Box>
