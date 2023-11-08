@@ -56,7 +56,7 @@ const LandingPage = () => {
           {" "}
           Terlaris{" "}
         </Text>
-        <ReactCardSlider slides={data} />
+        <ReactCardSlider slides={event} />
       </Box>
 
       <Box mt={"-20px"} mb={"50px"}>
@@ -70,7 +70,7 @@ const LandingPage = () => {
           {" "}
           Konser{" "}
         </Text>
-        <ReactCardSlider slides={data} />
+        <ReactCardSlider slides={event} />
       </Box>
 
       {/* Footer */}
